@@ -1,9 +1,9 @@
 C:\Users\Eng Ahmed Kandil\Desktop\Graphical Digital Clock\Graphical Digital Clock\bin\Debug\Graphical Digital Clock.exe.config
 C:\Users\Eng Ahmed Kandil\Desktop\Graphical Digital Clock\Graphical Digital Clock\bin\Debug\Graphical Digital Clock.exe
 C:\Users\Eng Ahmed Kandil\Desktop\Graphical Digital Clock\Graphical Digital Clock\bin\Debug\Graphical Digital Clock.pdb
-C:\Users\Eng Ahmed Kandil\Desktop\Graphical Digital Clock\Graphical Digital Clock\obj\Debug\Graphical Digital Clock.csprojResolveAssemblyReference.cache
 C:\Users\Eng Ahmed Kandil\Desktop\Graphical Digital Clock\Graphical Digital Clock\obj\Debug\Graphical_Digital_Clock.Form1.resources
 C:\Users\Eng Ahmed Kandil\Desktop\Graphical Digital Clock\Graphical Digital Clock\obj\Debug\Graphical_Digital_Clock.Properties.Resources.resources
 C:\Users\Eng Ahmed Kandil\Desktop\Graphical Digital Clock\Graphical Digital Clock\obj\Debug\Graphical Digital Clock.csproj.GenerateResource.Cache
 C:\Users\Eng Ahmed Kandil\Desktop\Graphical Digital Clock\Graphical Digital Clock\obj\Debug\Graphical Digital Clock.exe
 C:\Users\Eng Ahmed Kandil\Desktop\Graphical Digital Clock\Graphical Digital Clock\obj\Debug\Graphical Digital Clock.pdb
+C:\Users\Eng Ahmed Kandil\Desktop\Graphical Digital Clock\Graphical Digital Clock\obj\Debug\Graphical Digital Clock.csprojResolveAssemblyReference.cache

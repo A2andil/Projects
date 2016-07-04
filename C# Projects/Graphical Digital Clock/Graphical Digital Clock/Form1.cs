@@ -25,22 +25,42 @@ namespace Graphical_Digital_Clock
             t.Tick += new EventHandler(t_tick);
             t.Start();
         }
-        void t_tick(object sender, EventArgs args)
+
+        private void t_tick(object sender, EventArgs e)
         {
-            int[] time = {DateTime.Now.Hour/10,DateTime.Now.Hour%10,
-                          DateTime.Now.Minute/10,DateTime.Now.Minute%10,
-                           DateTime.Now.Second/10,DateTime.Now.Second%10};
+            int h, m, s;
+            h = DateTime.Now.Hour;
+            m = DateTime.Now.Minute;
+            s = DateTime.Now.Second;
+
+            int[] time = { h / 10, h % 10, m / 10, m % 10, s / 10, s % 10 };
 
             Bitmap bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-            Graphics Graphic = Graphics.FromImage(bmp);
 
-            for (int i = 0; i < time.Length; i++)
+            Graphics graphic = Graphics.FromImage(bmp);
+
+            for(int i=0;i<time.Length;i++)
             {
-                int extra = i/2*20;
+                int extra = 32 * i + i / 2 * 20;
+
                 Image img = Image.FromFile(path + time[i] + ".png");
-                Graphic.DrawImage(img, 10+i*32+extra, 10, 32, 46);
-                pictureBox1.Image = bmp;
+
+                graphic.DrawImage(img, 10 + extra, 10, 32, 46);
             }
+
+            Font font = new Font("Arial", 30);
+            SolidBrush brush = new SolidBrush(Color.Black);
+            PointF point = new PointF(68.5f, 10);
+
+            graphic.DrawString(":", font, brush, point);
+            point.X = 154.5f;
+            graphic.DrawString(":", font, brush, point);
+
+            pictureBox1.Image = bmp;
+
+            graphic.Dispose();
         }
+
+        
     }
 }
