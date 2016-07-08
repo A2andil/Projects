@@ -32,8 +32,7 @@ namespace Picture_Puzzle
             foreach (Button b in panel1.Controls)
                 b.Enabled = true;
 
-                                            //here you write complete url for your image
-            Image orginal = Image.FromFile(@"C:\Users\Eng Ahmed Kandil\Documents\Visual Studio 2013\Projects\Picture Puzzle\img.jpg");
+            Image orginal = Image.FromFile(@"img\img.jpg");
 
             cropImageTomages(orginal, 270, 270);
 
