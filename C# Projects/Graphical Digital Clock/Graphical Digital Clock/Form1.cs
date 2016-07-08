@@ -12,7 +12,7 @@ namespace Graphical_Digital_Clock
 {
     public partial class Form1 : Form
     {
-        string path = @"C:\Users\Eng Ahmed Kandil\Desktop\Digits\";
+        string path = @"Digits\";
         Timer t = new Timer();
         public Form1()
         {
