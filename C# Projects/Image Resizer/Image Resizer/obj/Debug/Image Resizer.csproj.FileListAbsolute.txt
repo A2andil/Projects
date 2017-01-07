@@ -1,0 +1,9 @@
+c:\users\eng runtime\documents\visual studio 2013\Projects\Image Resizer\Image Resizer\bin\Debug\Image Resizer.exe.config
+c:\users\eng runtime\documents\visual studio 2013\Projects\Image Resizer\Image Resizer\bin\Debug\Image Resizer.exe
+c:\users\eng runtime\documents\visual studio 2013\Projects\Image Resizer\Image Resizer\bin\Debug\Image Resizer.pdb
+c:\users\eng runtime\documents\visual studio 2013\Projects\Image Resizer\Image Resizer\obj\Debug\Image Resizer.csprojResolveAssemblyReference.cache
+c:\users\eng runtime\documents\visual studio 2013\Projects\Image Resizer\Image Resizer\obj\Debug\Image_Resizer.Form1.resources
+c:\users\eng runtime\documents\visual studio 2013\Projects\Image Resizer\Image Resizer\obj\Debug\Image_Resizer.Properties.Resources.resources
+c:\users\eng runtime\documents\visual studio 2013\Projects\Image Resizer\Image Resizer\obj\Debug\Image Resizer.csproj.GenerateResource.Cache
+c:\users\eng runtime\documents\visual studio 2013\Projects\Image Resizer\Image Resizer\obj\Debug\Image Resizer.exe
+c:\users\eng runtime\documents\visual studio 2013\Projects\Image Resizer\Image Resizer\obj\Debug\Image Resizer.pdb
