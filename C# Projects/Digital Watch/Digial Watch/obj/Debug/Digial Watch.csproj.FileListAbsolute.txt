@@ -1,9 +1,0 @@
-c:\users\runtime\documents\visual studio 2015\Projects\Digial Watch\Digial Watch\bin\Debug\Digial Watch.exe.config
-c:\users\runtime\documents\visual studio 2015\Projects\Digial Watch\Digial Watch\bin\Debug\Digial Watch.exe
-c:\users\runtime\documents\visual studio 2015\Projects\Digial Watch\Digial Watch\bin\Debug\Digial Watch.pdb
-c:\users\runtime\documents\visual studio 2015\Projects\Digial Watch\Digial Watch\obj\Debug\Digial Watch.csprojResolveAssemblyReference.cache
-c:\users\runtime\documents\visual studio 2015\Projects\Digial Watch\Digial Watch\obj\Debug\Digial_Watch.Form1.resources
-c:\users\runtime\documents\visual studio 2015\Projects\Digial Watch\Digial Watch\obj\Debug\Digial_Watch.Properties.Resources.resources
-c:\users\runtime\documents\visual studio 2015\Projects\Digial Watch\Digial Watch\obj\Debug\Digial Watch.csproj.GenerateResource.Cache
-c:\users\runtime\documents\visual studio 2015\Projects\Digial Watch\Digial Watch\obj\Debug\Digial Watch.exe
-c:\users\runtime\documents\visual studio 2015\Projects\Digial Watch\Digial Watch\obj\Debug\Digial Watch.pdb
