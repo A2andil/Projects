@@ -46,9 +46,9 @@ namespace Picture_Puzzle
 
             arr = suffle(arr);
 
-            foreach(Button b in panel1.Controls)
+            foreach (Button b in panel1.Controls)
             {
-                if(i<arr.Length)
+                if (i < arr.Length)
                 {
                     b.Image = (Image)images[arr[i]];
                     i++;
@@ -60,7 +60,6 @@ namespace Picture_Puzzle
         {
             Random rand = new Random();
             arr = arr.OrderBy(x => rand.Next()).ToArray();
-
             return arr;
         }
 
@@ -76,7 +75,7 @@ namespace Picture_Puzzle
 
             int movr = 0, movd = 0;
 
-            for(int x=0;x<8;x++)
+            for (int x = 0; x < 8; x++)
             {
                 Bitmap piece = new Bitmap(90, 90);
 
@@ -89,7 +88,7 @@ namespace Picture_Puzzle
 
                 movr += 90;
 
-                if(movr==270)
+                if (movr == 270)
                 {
                     movr = 0;
                     movd += 90;
@@ -105,24 +104,24 @@ namespace Picture_Puzzle
 
         private void MoveButton(Button btn)
         {
-            if(((btn.Location.X==EmptyPoint.X-90||btn.Location.X==EmptyPoint.X+90)
-                &&btn.Location.Y==EmptyPoint.Y)
-                ||(btn.Location.Y==EmptyPoint.Y-90||btn.Location.Y==EmptyPoint.Y+90)
-                &&btn.Location.X==EmptyPoint.X)
+            if (((btn.Location.X == EmptyPoint.X - 90 || btn.Location.X == EmptyPoint.X + 90)
+                && btn.Location.Y == EmptyPoint.Y)
+                || (btn.Location.Y == EmptyPoint.Y - 90 || btn.Location.Y == EmptyPoint.Y + 90)
+                && btn.Location.X == EmptyPoint.X)
             {
                 Point swap = btn.Location;
                 btn.Location = EmptyPoint;
                 EmptyPoint = swap;
             }
 
-            if(EmptyPoint.X==180&&EmptyPoint.Y==180)
+            if (EmptyPoint.X == 180 && EmptyPoint.Y == 180)
                 CheckValid();
         }
 
         private void CheckValid()
         {
             int count = 0, index;
-            foreach(Button btn in panel1.Controls)
+            foreach (Button btn in panel1.Controls)
             {
                 index = (btn.Location.Y / 90) * 3 + btn.Location.X / 90;
                 if (images[index] == btn.Image)

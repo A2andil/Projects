@@ -16,3 +16,12 @@ C:\Users\Eng Ahmed Kandil\Downloads\Projects-master\C# Projects\Picture Puzzle\P
 C:\Users\Eng Ahmed Kandil\Downloads\Projects-master\C# Projects\Picture Puzzle\Picture Puzzle\obj\Debug\Picture_Puzzle.Form1.resources
 C:\Users\Eng Ahmed Kandil\Downloads\Projects-master\C# Projects\Picture Puzzle\Picture Puzzle\obj\Debug\Picture_Puzzle.Properties.Resources.resources
 C:\Users\Eng Ahmed Kandil\Downloads\Projects-master\C# Projects\Picture Puzzle\Picture Puzzle\obj\Debug\Picture Puzzle.csproj.GenerateResource.Cache
+C:\Users\Ahmad Kandil\Documents\GitHub\Projects\C# Projects\Picture Puzzle Project\Picture Puzzle\bin\Debug\Picture Puzzle.exe.config
+C:\Users\Ahmad Kandil\Documents\GitHub\Projects\C# Projects\Picture Puzzle Project\Picture Puzzle\obj\Debug\Picture Puzzle.exe
+C:\Users\Ahmad Kandil\Documents\GitHub\Projects\C# Projects\Picture Puzzle Project\Picture Puzzle\obj\Debug\Picture Puzzle.pdb
+C:\Users\Ahmad Kandil\Documents\GitHub\Projects\C# Projects\Picture Puzzle Project\Picture Puzzle\bin\Debug\Picture Puzzle.exe
+C:\Users\Ahmad Kandil\Documents\GitHub\Projects\C# Projects\Picture Puzzle Project\Picture Puzzle\bin\Debug\Picture Puzzle.pdb
+C:\Users\Ahmad Kandil\Documents\GitHub\Projects\C# Projects\Picture Puzzle Project\Picture Puzzle\obj\Debug\Picture Puzzle.csprojResolveAssemblyReference.cache
+C:\Users\Ahmad Kandil\Documents\GitHub\Projects\C# Projects\Picture Puzzle Project\Picture Puzzle\obj\Debug\Picture_Puzzle.Form1.resources
+C:\Users\Ahmad Kandil\Documents\GitHub\Projects\C# Projects\Picture Puzzle Project\Picture Puzzle\obj\Debug\Picture_Puzzle.Properties.Resources.resources
+C:\Users\Ahmad Kandil\Documents\GitHub\Projects\C# Projects\Picture Puzzle Project\Picture Puzzle\obj\Debug\Picture Puzzle.csproj.GenerateResource.Cache
