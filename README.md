@@ -2,7 +2,7 @@
 
 ![GitHub Logo](/Graphics/Digits/0.png)
 
-## [Bracode :](/Projects/Barcode%20Project)
+## [Bracode :](/Graphics/Digits/0.png)
        ![GitHub Logo](/Graphics/Digits/0.png)
 ## Data structures :
        1. Trie.
