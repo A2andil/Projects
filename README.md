@@ -1,19 +1,36 @@
 # List of C# Projects
 
-## [1- Bracode :](/C%23%20Projects/Barcode%20Project)
+## [1- Bracode :](C%23%20Projects/1-%20Barcode)
        Convert Text to Baracode
        
 ![Barcode](/Graphics/Resources/Barcode.PNG)
 
-## Data structures :
-       1. Trie.
-       2. Priority Queue & Queue.
-       3. Stack.
-       4. Set.
-       5. Dictionary.
----
-### Link on Youtube [here](https://www.youtube.com/watch?v=1DyJ6NtVp3k&t=1s)
----
-## License
-copyright © 2017, code released under the [MIT License](LICENSE)
+## [2- Digital Watch :](C%23%20Projects/2-%20Digital%20Watch)
+       Convert Text to Baracode
+       
+![Barcode](/Graphics/Resources/Barcode.PNG)
 
+## [3- Binary Watch](/C%23%20Projects/3-%20Binary%20Watch)
+       Convert Text to Baracode
+       
+![Barcode](/Graphics/Resources/Barcode.PNG)
+
+## [4- Graphical Digital](/C%23%20Projects/4-%20Graphical%20Digital)
+       Convert Text to Baracode
+       
+![Barcode](/Graphics/Resources/Barcode.PNG)
+
+## [5- Image Resize](/C%23%20Projects/5-%20Image%20Resize)
+       Convert Text to Baracode
+       
+![Barcode](/Graphics/Resources/Barcode.PNG)
+
+## [6- Picture Puzzle Game](/C%23%20Projects/6-%20Picture%20Puzzle%20Game)
+       Convert Text to Baracode
+       
+![Barcode](/Graphics/Resources/Barcode.PNG)
+
+## [7- Snake Game](/C%23%20Projects/7-%20Snake%20Game)
+       Convert Text to Baracode
+       
+![Barcode](/Graphics/Resources/Barcode.PNG)
