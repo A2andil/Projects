@@ -1,6 +1,5 @@
 # List of C# Projects
 
-![GitHub Logo](/Graphics/Digits/0.png)
 
 ## [Bracode :](/Graphics/Digits/0.png)
        ![GitHub Logo](/Graphics/Digits/0.png)
