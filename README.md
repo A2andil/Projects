@@ -2,9 +2,9 @@
  ![Bracode :](/Graphics/Digits/0.png)
 
 ## [Bracode :](/Graphics/Digits/0.png)
-       ![GitHub Logo](/Graphics/Digits/0.png)
+       Convert Text to Baracode
        
-![Github logo](/Graphics/Digits/0.png)
+![Github logo](/Graphics/Resources.Barcode.png)
 
 ## Data structures :
        1. Trie.
