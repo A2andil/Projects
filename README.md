@@ -4,7 +4,7 @@
 ## [Bracode :](/Graphics/Digits/0.png)
        Convert Text to Baracode
        
-![Github logo](/Graphics/Resources.Barcode.png)
+![Github logo](/Graphics/Resources/Barcode.PNG)
 
 ## Data structures :
        1. Trie.
