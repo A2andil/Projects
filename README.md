@@ -2,8 +2,8 @@
 
 ![GitHub Logo](/Graphics/Digits/0.png)
 
-## [Bracode](/Projects/Barcode%20Project) :
-       ![GitHub Logo](/Graphics/Resources/Barcode.PNG)
+## [Bracode :](/Projects/Barcode%20Project)
+       ![GitHub Logo](/Graphics/Digits/0.png)
 ## Data structures :
        1. Trie.
        2. Priority Queue & Queue.
