@@ -15,7 +15,7 @@
        
 ![Barcode](/Graphics/Resources/binary_watch.PNG)
 
-## [4- Graphical Digital](/C%23%20Projects/4-%20Graphical%20Digital)
+## [4- Graphical Digital Watch](/C%23%20Projects/4-%20Graphical%20Digital%20watch)
         GUI For getting current time continuously and repesent it with graphical images.
        
 ![Barcode](/Graphics/Resources/graphical_digital_watch.PNG)
