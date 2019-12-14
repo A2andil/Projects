@@ -1,10 +1,9 @@
 # List of C# Projects
- ![Bracode :](/Graphics/Digits/0.png)
 
 ## [Bracode :](/Graphics/Digits/0.png)
        Convert Text to Baracode
        
-![Github logo](/Graphics/Resources/Barcode.PNG)
+![Barcode](/Graphics/Resources/Barcode.PNG)
 
 ## Data structures :
        1. Trie.
