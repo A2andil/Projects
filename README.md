@@ -26,7 +26,7 @@
 ![Barcode](/Graphics/Resources/image_resize.PNG)
 
 ## [6- Picture Puzzle Game](/C%23%20Projects/6-%20Picture%20Puzzle%20Game)
-       image divided into parts Randomly and player can swap part with Empty part to get the right image.
+       image divided into parts Randomly and player can swap part with Empty part to get the orignal image.
        
 ![Barcode](/Graphics/Resources/puzzle_game.PNG)
 
