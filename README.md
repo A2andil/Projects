@@ -1,10 +1,10 @@
 # List of C# Projects
- [Bracode :](/Graphics/Digits/0.png)
+ ![Bracode :](/Graphics/Digits/0.png)
 
 ## [Bracode :](/Graphics/Digits/0.png)
        ![GitHub Logo](/Graphics/Digits/0.png)
        
-[Bracode :](/Graphics/Digits/0.png)
+![Github logo](/Graphics/Digits/0.png)
 
 ## Data structures :
        1. Trie.
