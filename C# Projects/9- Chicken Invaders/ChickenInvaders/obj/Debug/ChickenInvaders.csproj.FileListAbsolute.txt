@@ -1,0 +1,10 @@
+C:\Users\OS\source\repos\ChickenInvaders\ChickenInvaders\bin\Debug\ChickenInvaders.exe.config
+C:\Users\OS\source\repos\ChickenInvaders\ChickenInvaders\bin\Debug\ChickenInvaders.exe
+C:\Users\OS\source\repos\ChickenInvaders\ChickenInvaders\bin\Debug\ChickenInvaders.pdb
+C:\Users\OS\source\repos\ChickenInvaders\ChickenInvaders\obj\Debug\ChickenInvaders.csprojAssemblyReference.cache
+C:\Users\OS\source\repos\ChickenInvaders\ChickenInvaders\obj\Debug\ChickenInvaders.Properties.Resources.resources
+C:\Users\OS\source\repos\ChickenInvaders\ChickenInvaders\obj\Debug\ChickenInvaders.csproj.GenerateResource.cache
+C:\Users\OS\source\repos\ChickenInvaders\ChickenInvaders\obj\Debug\ChickenInvaders.csproj.CoreCompileInputs.cache
+C:\Users\OS\source\repos\ChickenInvaders\ChickenInvaders\obj\Debug\ChickenInvaders.exe
+C:\Users\OS\source\repos\ChickenInvaders\ChickenInvaders\obj\Debug\ChickenInvaders.pdb
+C:\Users\OS\source\repos\ChickenInvaders\ChickenInvaders\obj\Debug\ChickenInvaders.Window.resources
