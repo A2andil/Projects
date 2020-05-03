@@ -18,10 +18,10 @@ namespace ChickenInvaders
 {
     public partial class Window : Form
     {
-        public UnitBox _rocket, _enemy;
+        public UnitBox _rocket;
         private List<UnitBox> _bullets;
         private int rockSpeed = 10, bulletSpeed = 3, downSpeed = 2,
-            count = 0, dt = 1, chickenLeftSpeed = 1;
+            count = 0, dt = 1, chickenLeftSpeed = 1, startPchicken = 0;
 
         private Bitmap _bossRed;
         private List<Bitmap> _bossRedPieces;
@@ -75,7 +75,7 @@ namespace ChickenInvaders
             Bitmap img = _bossRedPieces[0];
             for (int i = 0; i < 3; i++)
             {
-               _chickens[i] = new List<UnitBox>();
+                _chickens[i] = new List<UnitBox>();
                 for (int j = 0; j < 8; j++)
                 {
                     UnitBox chicken = new UnitBox(img.Width, img.Height);
@@ -119,7 +119,6 @@ namespace ChickenInvaders
         private void leftRocket()
         {
             _rocket.Left -= rockSpeed;
-            //_rocket.Image = Image.FromFile(@"C:\Users\OS\source\repos\ChickenInvaders\ChickenInvaders\Resources\720x405.jpeg");
         }
 
         private void rightRocket()
@@ -142,30 +141,29 @@ namespace ChickenInvaders
 
         private void removeBullets()
         {
-            tm.Stop();
-            List<UnitBox> ans = new List<UnitBox>();
             for (int i = 0; i < _bullets.Count; i++)
-                if (_bullets[i].Top >= -10)
-                    ans.Add(_bullets[i]);
-            _bullets = ans;
-            tm.Start();
+                if (!(_bullets[i].Top >= -10))
+                    _bullets.RemoveAt(i);
         }
 
         private void Window_Load(object sender, EventArgs e)
         {
-
+          
         }
 
         private void tm_tick(object sender, EventArgs e)
-        {
+        { 
+
             for (int i = 0; i < _bullets.Count; i++)
                 _bullets[i].Top -= bulletSpeed;
 
-            if (_chickens[0][0].Left + 800 > this.Width)
+            if (startPchicken + 800 > this.Width)
                 chickenLeftSpeed = -1;
-            else if (_chickens[0][0].Left <= 0)
+            else if (startPchicken <= 0)
                 chickenLeftSpeed = 1;
+
             //enemies
+            startPchicken += chickenLeftSpeed;
             for (int row = 0; row < _chickens.Length; row++)
             {
                 for (int col = 0; col < _chickens[row].Count; col++)
@@ -173,7 +171,6 @@ namespace ChickenInvaders
                     _chickens[row][col].Image = _bossRedPieces[count];
                     _chickens[row][col].Left += chickenLeftSpeed;
                 }
-
             }
 
             //_enemy.Image = _bossRedPieces[count];
@@ -205,7 +202,38 @@ namespace ChickenInvaders
 
         private void collision()
         {
-            
+            for (int row = 0; row < _chickens.Length; row++)
+            {
+                for (int col = 0; col < _chickens[row].Count; col++)
+                {
+                    for (int i = 0; i < _bullets.Count; i++)
+                    {
+                        if (checkCollision(_bullets[i],
+                            _chickens[row][col], i, row, col))
+                            break;
+                    }
+                }
+            }
+        }
+
+        private bool checkCollision(UnitBox bullet, UnitBox chicken,
+            int i, int row, int col)
+        {
+            int left = chicken.Left - bullet.Width
+                , right = chicken.Width + chicken.Left,
+                top = chicken.Top - bullet.Height,
+                bottom = chicken.Top + chicken.Height;
+
+            if (bullet.Left >= left && bullet.Left <= right
+                && bullet.Top >= top && bullet.Top <= bottom)
+            {
+                Controls.Remove(bullet);
+                Controls.Remove(chicken);
+                _bullets.RemoveAt(i);
+                _chickens[row].RemoveAt(col);
+                return true;
+            }
+            return false;
         }
 
         private void Window_KeyUp(object sender, KeyEventArgs e)
