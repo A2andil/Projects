@@ -10,7 +10,7 @@ namespace ChickenInvaders.UserDefined
 {
     public class UnitBox : PictureBox
     {
-        public int eggLandCount;
+        public int eggLandCount, eggdownSpeed = 2;
         public UnitBox(int width, int height)
         {
             this.Width = width;
@@ -23,6 +23,19 @@ namespace ChickenInvaders.UserDefined
         public void resetLand()
         {
             eggLandCount = 0;
+        }
+
+        public bool collision(PictureBox x)
+        {
+            int left = x.Left - Width
+                , right = x.Width + x.Left,
+                top = x.Top - x.Height,
+                bottom = x.Top + x.Height;
+
+            if (Left >= left && Left <= right
+                && Top >= top && Top <= bottom)
+                return true;
+            return false;
         }
     }
 }

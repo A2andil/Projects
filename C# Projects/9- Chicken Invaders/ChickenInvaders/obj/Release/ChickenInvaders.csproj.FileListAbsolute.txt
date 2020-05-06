@@ -8,3 +8,18 @@ C:\Users\OS\source\repos\ChickenInvaders\ChickenInvaders\obj\Release\ChickenInva
 C:\Users\OS\source\repos\ChickenInvaders\ChickenInvaders\obj\Release\ChickenInvaders.csproj.CoreCompileInputs.cache
 C:\Users\OS\source\repos\ChickenInvaders\ChickenInvaders\obj\Release\ChickenInvaders.exe
 C:\Users\OS\source\repos\ChickenInvaders\ChickenInvaders\obj\Release\ChickenInvaders.pdb
+C:\Users\OS\source\repos\Chicken Invaders\ChickenInvaders\bin\Release\ChickenInvaders.exe.config
+C:\Users\OS\source\repos\Chicken Invaders\ChickenInvaders\bin\Release\ChickenInvaders.exe
+C:\Users\OS\source\repos\Chicken Invaders\ChickenInvaders\bin\Release\ChickenInvaders.pdb
+C:\Users\OS\source\repos\Chicken Invaders\ChickenInvaders\bin\Release\Interop.WMPLib.dll
+C:\Users\OS\source\repos\Chicken Invaders\ChickenInvaders\bin\Release\AxInterop.WMPLib.dll
+C:\Users\OS\source\repos\Chicken Invaders\ChickenInvaders\obj\Release\ChickenInvaders.csprojAssemblyReference.cache
+C:\Users\OS\source\repos\Chicken Invaders\ChickenInvaders\obj\Release\Interop.WMPLib.dll
+C:\Users\OS\source\repos\Chicken Invaders\ChickenInvaders\obj\Release\AxInterop.WMPLib.dll
+C:\Users\OS\source\repos\Chicken Invaders\ChickenInvaders\obj\Release\ChickenInvaders.csproj.ResolveComReference.cache
+C:\Users\OS\source\repos\Chicken Invaders\ChickenInvaders\obj\Release\ChickenInvaders.Window.resources
+C:\Users\OS\source\repos\Chicken Invaders\ChickenInvaders\obj\Release\ChickenInvaders.Properties.Resources.resources
+C:\Users\OS\source\repos\Chicken Invaders\ChickenInvaders\obj\Release\ChickenInvaders.csproj.GenerateResource.cache
+C:\Users\OS\source\repos\Chicken Invaders\ChickenInvaders\obj\Release\ChickenInvaders.csproj.CoreCompileInputs.cache
+C:\Users\OS\source\repos\Chicken Invaders\ChickenInvaders\obj\Release\ChickenInvaders.exe
+C:\Users\OS\source\repos\Chicken Invaders\ChickenInvaders\obj\Release\ChickenInvaders.pdb
