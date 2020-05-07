@@ -18,46 +18,40 @@ namespace ChickenInvaders
 {
     public partial class Window : Form
     {
-        private int rockSpeed = 10, bulletSpeed = 3,
-           count = 0, dt = 1, chickenLeftSpeed = 1, startPchicken = 0;
+        private int rockSpeed = 10, bulletSpeed = 3, chickenHeight = 100,
+           count = 0, dt = 1, chickenLeftSpeed = 1, startPchicken = 0,
+            live = 3, score = 0;
 
         public UnitBox _rocket;
+
         private List<UnitBox> _bullets;
 
-        private Bitmap _bossRed;
-        private List<Bitmap> _bossRedPieces;
+        private List<UnitBox> _liveHearts = new List<UnitBox>();
 
-        private Bitmap _brokenEgg;
-        private List<Bitmap> _brokenEggs;
-
-        //Random
         Random rand = new Random();
 
         //chickens
+        private Bitmap _bossRed;
+        private List<Bitmap> _bossRedPieces;
         private UnitBox[,] _chickens = new UnitBox[3, 8];
+        private int[] topChickenRowPosition = new int[3];      
 
         //eggs
+        private Bitmap _brokenEgg;
+        private List<Bitmap> _brokenEggs;
         private List<UnitBox> _eggs = new List<UnitBox>();
 
-
-        //live 
-        private int live = 3, score = 0;
-        private List<UnitBox> _liveHearts = new List<UnitBox>();
-
-        //chickens last level
-        private UnitBox[] lastLevelChickens = new UnitBox[8];
 
         public Window()
         {
             InitializeComponent();
-            //rocket
-            Opacity = 20;
+
             _rocket = new UnitBox(100, 100);
             _rocket.Left = this.Width / 2 - _rocket.Width / 2;
             _rocket.Top = this.Height - _rocket.Height;
-            _rocket.BackColor = Color.Transparent;
             _rocket.Image = Properties.Resources.ship;
             this.Controls.Add(_rocket);
+            
             _bullets = new List<UnitBox>();
 
             //split chicken
@@ -77,6 +71,8 @@ namespace ChickenInvaders
             fillLive(live);
         }
 
+
+        #region global functions
         private void fillLive(int l)
         {
             Bitmap heart = new Bitmap(Properties.Resources.heart);
@@ -87,25 +83,6 @@ namespace ChickenInvaders
                 _liveHearts[i].Left = Width - (3 - i) * 45;
                 Controls.Add(_liveHearts[i]);
             }
-        }
-
-        private void createChickens()
-        {
-            Bitmap img = _bossRedPieces[0];
-            for (int i = 0; i < 3; i++)
-            {
-                for (int j = 0; j < 8; j++)
-                {
-                    UnitBox chicken = new UnitBox(img.Width, img.Height);
-                    chicken.Image = _bossRedPieces[1];
-                    chicken.Left = j * 100;
-                    chicken.Top = i * 100 + img.Height;
-                    _chickens[i, j] = chicken;
-                    Controls.Add(chicken);
-                    if (i == 2) lastLevelChickens[j] = chicken;
-                }
-            }
-
         }
 
         private void dividIntoImages(Bitmap Orignal, List<Bitmap> result, int n)
@@ -121,7 +98,9 @@ namespace ChickenInvaders
                 result.Add(piece);
             }
         }
+        #endregion
 
+        #region keydowns
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Left)
@@ -145,30 +124,55 @@ namespace ChickenInvaders
         {
             _rocket.Left += rockSpeed;
         }
+        #endregion
 
-        private void luanchBullet()
+
+        #region chicken
+        private void createChickens()
         {
-            UnitBox _bullet = new UnitBox(10, 10);
-            _bullet.Left
-                = _rocket.Left + _rocket.Width / 2 - _bullet.Width / 2;
-            _bullet.Top = _rocket.Top - _bullet.Height;
-            _bullet.Image = Properties.Resources.b2;
-            this.Controls.Add(_bullet);
-            _bullets.Add(_bullet);
-            playSound();
-            removeBullets();
+            Bitmap img = _bossRedPieces[0];
+            chickenHeight = img.Height;
+            for (int i = 0; i < 3; i++)
+            {
+                topChickenRowPosition[i] = i * 100 + chickenHeight;
+                for (int j = 0; j < 8; j++)
+                {
+                    UnitBox chicken = new UnitBox(img.Width, chickenHeight);
+                    chicken.Image = _bossRedPieces[1];
+                    chicken.Left = j * 100;
+                    chicken.Top = i * 100 + chickenHeight;
+                    _chickens[i, j] = chicken;
+                    Controls.Add(chicken);
+                }
+            }
+
         }
 
-        private void removeBullets()
+        private void chickeTimer_Tick(object sender, EventArgs e)
         {
-            for (int i = 0; i < _bullets.Count; i++)
-                if (!(_bullets[i].Top >= -10))
-                    _bullets.RemoveAt(i);
+            if (startPchicken + 800 > this.Width) chickenLeftSpeed = -1;
+            else if (startPchicken <= 0) chickenLeftSpeed = 1;
+
+            startPchicken += chickenLeftSpeed;
+            for (int row = 0; row < 3; row++)
+            {
+                for (int col = 0; col < 8; col++)
+                {
+                    if (_chickens[row, col] == null) continue;
+                    _chickens[row, col].Image = _bossRedPieces[count];
+                    _chickens[row, col].Left += chickenLeftSpeed;
+                }
+            }
+
+            count = count + dt;
+            dt = count == 9 ? -1 : (count == 0 ? 1 : dt);
         }
+        #endregion
 
-        private void tm3_Tick(object sender, EventArgs e)
+
+        #region Timer, Collision and Creation Eggs
+        private void eggTimr_Tick(object sender, EventArgs e)
         {
-
             int r = rand.Next(500);
             if (r == 5) createRandEgg();
 
@@ -196,10 +200,29 @@ namespace ChickenInvaders
                         Controls.Remove(_eggs[i]);
                         _eggs.RemoveAt(i);
                     }
-
                 }
             }
-            win();
+        }
+
+        private void createRandEgg()
+        {
+
+            List<UnitBox> rows = new List<UnitBox>();
+            for (int i = 0; i < 3; i++)
+                for (int j = 0; j < 8; j++)
+                    if (_chickens[i, j] != null)
+                        rows.Add(_chickens[i, j]);
+
+            //select random chicken last level to drop egg from it
+            UnitBox chicken = rows[rand.Next(rows.Count)];
+
+
+            UnitBox egg = new UnitBox(10, 20);
+            egg.Image = new Bitmap(Properties.Resources.egg);
+            egg.Left = chicken.Left + chicken.Width / 2 - egg.Width / 2;
+            egg.Top = chicken.Top + chicken.Height;
+            _eggs.Add(egg);
+            Controls.Add(egg);
         }
 
         private void decreaseLive()
@@ -211,21 +234,9 @@ namespace ChickenInvaders
                 endGame(new Bitmap(Properties.Resources.lose));
         }
 
-        private void win()
-        {
-            bool winner = false;
-            for (int i = 0; i < lastLevelChickens.Length; i++)
-                if (lastLevelChickens[i] != null)
-                {
-                    winner = true;
-                    break;
-                }
-            if (!winner) endGame(new Bitmap(Properties.Resources.win));
-        }
-
         private void endGame(Bitmap bitmap)
         {
-            tm.Stop(); tm3.Stop();
+            tm.Stop(); chickeTimer.Stop(); eggTimer.Stop();
             Controls.Clear();
             UnitBox congratulations = new UnitBox(100, 100);
             congratulations.Click += new EventHandler(cls);
@@ -237,125 +248,94 @@ namespace ChickenInvaders
             Controls.Add(congratulations);
         }
 
+
         private void cls(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void createRandEgg()
-        {
-            List<int> rows = new List<int>();
-            for (int i = 0; i < lastLevelChickens.Length; i++)
-                if (lastLevelChickens[i] != null) rows.Add(i);
-
-            //select random chicken last level to drop egg from it
-            int r = rows[rand.Next(rows.Count)];
+        #endregion
 
 
-            UnitBox egg = new UnitBox(10, 20);
-            egg.Image = new Bitmap(Properties.Resources.egg);
-            egg.Left = lastLevelChickens[r].Left
-                + lastLevelChickens[r].Width / 2 - egg.Width / 2;
-            egg.Top = lastLevelChickens[r].Top
-                    + lastLevelChickens[r].Height;
-            _eggs.Add(egg);
-            Controls.Add(egg);
-        }
-
-        private void Window_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        #region bullets and collion and win or lose
         private void tm_tick(object sender, EventArgs e)
         {
-
             for (int i = 0; i < _bullets.Count; i++)
                 _bullets[i].Top -= bulletSpeed;
 
-            if (startPchicken + 800 > this.Width)
-                chickenLeftSpeed = -1;
-            else if (startPchicken <= 0)
-                chickenLeftSpeed = 1;
-
-            //enemies
-            startPchicken += chickenLeftSpeed;
-            for (int row = 0; row < 3; row++)
-            {
-                for (int col = 0; col < 8 ;col++)
-                {
-                    if (_chickens[row, col] == null) continue;
-                    _chickens[row, col].Image = _bossRedPieces[count];
-                    _chickens[row, col].Left += chickenLeftSpeed;
-                }
-            }
-
-            //_enemy.Image = _bossRedPieces[count];
-            count = count + dt;
-            dt = count == 9 ? -1 : (count == 0 ? 1 : dt);
-
-            //collision
             collision();
+            win();
+        }
+
+        private void luanchBullet()
+        {
+            UnitBox _bullet = new UnitBox(10, 10);
+            _bullet.Left
+                = _rocket.Left + _rocket.Width / 2 - _bullet.Width / 2;
+            _bullet.Top = _rocket.Top - _bullet.Height;
+            _bullet.Image = Properties.Resources.b2;
+            this.Controls.Add(_bullet);
+            _bullets.Add(_bullet);
+            removeBullets();
+        }
+
+        private void removeBullets()
+        {
+            for (int i = 0; i < _bullets.Count; i++)
+                if (!(_bullets[i].Top >= -10))
+                    _bullets.RemoveAt(i);
         }
 
         private void collision()
-        {
-            for (int i = 0; i < lastLevelChickens.Length; i++)
+        { 
+            for (int i = 0; i < _bullets.Count; i++)
             {
-                UnitBox chicken = lastLevelChickens[i];
-                for (int j = 0; j < _bullets.Count && chicken != null; j++)
-                {
-                    if (checkCollision(_bullets[j], chicken, i, j))
-                    {
-                        score += 10;
-                        label1.Text = "Score: " + score.ToString();
+                UnitBox bullet = _bullets[i];
+                int selectedRow = -1;
+                for (int l = topChickenRowPosition.Length - 1; l >= 0 ; l--)
+                    if (bullet.Top >= topChickenRowPosition[l] 
+                        && bullet.Top <= topChickenRowPosition[l] + chickenHeight)
+                    {      
+                        selectedRow = l;
                         break;
+                    }
+                if (selectedRow != -1)
+                {
+                    for (int j = 0; j < _chickens.GetLength(1); j++)
+                    { 
+                        UnitBox chicken = _chickens[selectedRow, j];
+                        if (chicken != null 
+                            && checkCollision(bullet, chicken, selectedRow, j, i))
+                        {
+                            score += 10;
+                            label1.Text = "Score: " + score.ToString();
+                            break;
+                        }
                     }
                 }
             }
         }
 
-        private bool checkCollision(UnitBox bullet, UnitBox chicken, int i, int j)
-        {
+        private bool checkCollision(UnitBox bullet, UnitBox chicken, int rw, int j
+            , int i) {
             if (bullet.collision(chicken))
             {
                 Controls.Remove(bullet);
                 Controls.Remove(chicken);
-                _bullets[j] = _bullets[_bullets.Count - 1];
+                _bullets[i] = _bullets[_bullets.Count - 1];
                 _bullets.RemoveAt(_bullets.Count - 1);
-                lastLevelChickens[i] = null;
-                for (int x = 2; x >= 1; x--)
-                {
-                    if (_chickens[x, i] != null)
-                    {
-                        lastLevelChickens[i] = _chickens[x - 1, i];                    Controls.Remove(_chickens[x, i]);
-                        _chickens[x, i] = null;
-                        break;
-                    } 
-                }
+                Controls.Remove(_chickens[rw, j]);
+                _chickens[rw, j] = null;
                 return true;
             }
             return false;
         }
 
-        private void Window_KeyUp(object sender, KeyEventArgs e)
+        private void win()
         {
-            //_rocket.Image = Properties.Resources.a2;
+            if (score == 240) endGame(new Bitmap(Properties.Resources.win));
         }
+        #endregion
 
-        private void playSound()
-        {
-            //Thread _thread = new Thread(delegate ()
-            //{
-            //    Stream str = Properties.Resources.a;
-            //    System.Media.SoundPlayer snd = new System.Media.SoundPlayer(str);
-            //    snd.PlaySync();
-            //    SoundPlayer player = new SoundPlayer();
-            //    player.SoundLocation = Properties.Resources.bulletSound;
-            //    player.Load();
-            //    player.Play();
-            //});
-            //_thread.Start();
-        }
     }
 }

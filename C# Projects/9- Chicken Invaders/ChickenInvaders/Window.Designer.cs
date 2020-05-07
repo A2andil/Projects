@@ -30,8 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.tm = new System.Windows.Forms.Timer(this.components);
-            this.tm3 = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
+            this.eggTimer = new System.Windows.Forms.Timer(this.components);
+            this.chickeTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // tm
@@ -39,12 +40,6 @@
             this.tm.Enabled = true;
             this.tm.Interval = 15;
             this.tm.Tick += new System.EventHandler(this.tm_tick);
-            // 
-            // tm3
-            // 
-            this.tm3.Enabled = true;
-            this.tm3.Interval = 15;
-            this.tm3.Tick += new System.EventHandler(this.tm3_Tick);
             // 
             // label1
             // 
@@ -54,6 +49,18 @@
             this.label1.Size = new System.Drawing.Size(96, 33);
             this.label1.TabIndex = 0;
             this.label1.Text = "Score: 0";
+            // 
+            // eggTimer
+            // 
+            this.eggTimer.Enabled = true;
+            this.eggTimer.Interval = 15;
+            this.eggTimer.Tick += new System.EventHandler(this.eggTimr_Tick);
+            // 
+            // chickeTimer
+            // 
+            this.chickeTimer.Enabled = true;
+            this.chickeTimer.Interval = 15;
+            this.chickeTimer.Tick += new System.EventHandler(this.chickeTimer_Tick);
             // 
             // Window
             // 
@@ -67,9 +74,7 @@
             this.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.Name = "Window";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Load += new System.EventHandler(this.Window_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Window_KeyDown);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Window_KeyUp);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -78,8 +83,9 @@
         #endregion
 
         private System.Windows.Forms.Timer tm;
-        private System.Windows.Forms.Timer tm3;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Timer eggTimer;
+        private System.Windows.Forms.Timer chickeTimer;
     }
 }
 
