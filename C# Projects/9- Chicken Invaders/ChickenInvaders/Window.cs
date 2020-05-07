@@ -18,7 +18,7 @@ namespace ChickenInvaders
 {
     public partial class Window : Form
     {
-        private int rockSpeed = 10, bulletSpeed = 3, downSpeed = 2,
+        private int rockSpeed = 10, bulletSpeed = 3,
            count = 0, dt = 1, chickenLeftSpeed = 1, startPchicken = 0;
 
         public UnitBox _rocket;
@@ -27,7 +27,6 @@ namespace ChickenInvaders
         private Bitmap _bossRed;
         private List<Bitmap> _bossRedPieces;
 
-        private UnitBox _egg;
         private Bitmap _brokenEgg;
         private List<Bitmap> _brokenEggs;
 
@@ -35,7 +34,7 @@ namespace ChickenInvaders
         Random rand = new Random();
 
         //chickens
-        private List<UnitBox>[] _chickens = new List<UnitBox>[3];
+        private UnitBox[,] _chickens = new UnitBox[3, 8];
 
         //eggs
         private List<UnitBox> _eggs = new List<UnitBox>();
@@ -44,6 +43,9 @@ namespace ChickenInvaders
         //live 
         private int live = 3, score = 0;
         private List<UnitBox> _liveHearts = new List<UnitBox>();
+
+        //chickens last level
+        private UnitBox[] lastLevelChickens = new UnitBox[8];
 
         public Window()
         {
@@ -92,17 +94,18 @@ namespace ChickenInvaders
             Bitmap img = _bossRedPieces[0];
             for (int i = 0; i < 3; i++)
             {
-                _chickens[i] = new List<UnitBox>();
                 for (int j = 0; j < 8; j++)
                 {
                     UnitBox chicken = new UnitBox(img.Width, img.Height);
                     chicken.Image = _bossRedPieces[1];
                     chicken.Left = j * 100;
                     chicken.Top = i * 100 + img.Height;
-                    _chickens[i].Add(chicken);
+                    _chickens[i, j] = chicken;
                     Controls.Add(chicken);
+                    if (i == 2) lastLevelChickens[j] = chicken;
                 }
             }
+
         }
 
         private void dividIntoImages(Bitmap Orignal, List<Bitmap> result, int n)
@@ -163,27 +166,22 @@ namespace ChickenInvaders
                     _bullets.RemoveAt(i);
         }
 
-        private void tm2_Tick(object sender, EventArgs e)
-        {
-            int ans = 0;
-            for (int i = 0; i < _chickens.Length; i++)
-                ans += _chickens[i].Count;
-            if (ans == 0)
-            {
-                tm.Stop();
-                tm3.Stop();
-            }
-        }
-
         private void tm3_Tick(object sender, EventArgs e)
         {
 
-            int r = rand.Next(1000);
+            int r = rand.Next(500);
             if (r == 5) createRandEgg();
 
             for (int i = 0; i < _eggs.Count; i++)
             {
                 _eggs[i].Top += _eggs[i].eggdownSpeed;
+                if (_rocket.collision(_eggs[i]))
+                {
+                    Controls.Remove(_eggs[i]);
+                    _eggs.RemoveAt(i);
+                    decreaseLive();
+                    break;
+                }
                 if (_eggs[i].Top >= this.Height - (_eggs[i].Height + 20))
                 {
                     _eggs[i].eggdownSpeed = 0;
@@ -201,28 +199,42 @@ namespace ChickenInvaders
 
                 }
             }
-
             win();
+        }
+
+        private void decreaseLive()
+        {
+            live--;
+            _liveHearts[live].Image
+                = new Bitmap(Properties.Resources.d_heart);
+            if (live < 1)
+                endGame(new Bitmap(Properties.Resources.lose));
         }
 
         private void win()
         {
-            int ans = 0;
-            for (int i = 0; i < _chickens.Length; i++)
-                ans += _chickens[i].Count;
-            if (ans == 0)
-            {
-                tm.Stop(); tm3.Stop();
-                Controls.Clear();
-                UnitBox congratulations = new UnitBox(100, 100);
-                congratulations.Click += new EventHandler(cls);
-                congratulations.Image = new Bitmap(Properties.Resources.win);
-                congratulations.Left 
-                    = Width / 2 - congratulations.Width / 2;
-                congratulations.Top 
-                    = Height / 2 - congratulations.Height / 2;
-                Controls.Add(congratulations);
-            }
+            bool winner = false;
+            for (int i = 0; i < lastLevelChickens.Length; i++)
+                if (lastLevelChickens[i] != null)
+                {
+                    winner = true;
+                    break;
+                }
+            if (!winner) endGame(new Bitmap(Properties.Resources.win));
+        }
+
+        private void endGame(Bitmap bitmap)
+        {
+            tm.Stop(); tm3.Stop();
+            Controls.Clear();
+            UnitBox congratulations = new UnitBox(100, 100);
+            congratulations.Click += new EventHandler(cls);
+            congratulations.Image = bitmap;
+            congratulations.Left
+                = Width / 2 - congratulations.Width / 2;
+            congratulations.Top
+                = Height / 2 - congratulations.Height / 2;
+            Controls.Add(congratulations);
         }
 
         private void cls(object sender, EventArgs e)
@@ -233,19 +245,19 @@ namespace ChickenInvaders
         private void createRandEgg()
         {
             List<int> rows = new List<int>();
-            for (int i = 0; i < 3; i++)
-                if (_chickens[i].Count > 0) rows.Add(i);
+            for (int i = 0; i < lastLevelChickens.Length; i++)
+                if (lastLevelChickens[i] != null) rows.Add(i);
 
-            //select random chicken to drop egg from it
-            int r = rows[rand.Next(rows.Count)], 
-                c = rand.Next(_chickens[r].Count);
+            //select random chicken last level to drop egg from it
+            int r = rows[rand.Next(rows.Count)];
 
-            
+
             UnitBox egg = new UnitBox(10, 20);
             egg.Image = new Bitmap(Properties.Resources.egg);
-            egg.Left = _chickens[r][c].Left
-                + _chickens[r][c].Width / 2 - egg.Width / 2;
-            egg.Top = _chickens[r][c].Top + _chickens[r][c].Height;
+            egg.Left = lastLevelChickens[r].Left
+                + lastLevelChickens[r].Width / 2 - egg.Width / 2;
+            egg.Top = lastLevelChickens[r].Top
+                    + lastLevelChickens[r].Height;
             _eggs.Add(egg);
             Controls.Add(egg);
         }
@@ -268,12 +280,13 @@ namespace ChickenInvaders
 
             //enemies
             startPchicken += chickenLeftSpeed;
-            for (int row = 0; row < _chickens.Length; row++)
+            for (int row = 0; row < 3; row++)
             {
-                for (int col = 0; col < _chickens[row].Count; col++)
+                for (int col = 0; col < 8 ;col++)
                 {
-                    _chickens[row][col].Image = _bossRedPieces[count];
-                    _chickens[row][col].Left += chickenLeftSpeed;
+                    if (_chickens[row, col] == null) continue;
+                    _chickens[row, col].Image = _bossRedPieces[count];
+                    _chickens[row, col].Left += chickenLeftSpeed;
                 }
             }
 
@@ -283,47 +296,43 @@ namespace ChickenInvaders
 
             //collision
             collision();
-
-            //rocket
-            //if (_rocket.collision(_egg))
-            //{
-            //    tm.Stop(); tm3.Stop();
-            //    MessageBox.Show("died");
-            //}
-            
         }
 
         private void collision()
         {
-            for (int row = 0; row < _chickens.Length; row++)
+            for (int i = 0; i < lastLevelChickens.Length; i++)
             {
-                for (int col = 0; col < _chickens[row].Count; col++)
+                UnitBox chicken = lastLevelChickens[i];
+                for (int j = 0; j < _bullets.Count && chicken != null; j++)
                 {
-                    for (int i = 0; i < _bullets.Count; i++)
+                    if (checkCollision(_bullets[j], chicken, i, j))
                     {
-                        if (checkCollision(_bullets[i],
-                            _chickens[row][col], i, row, col))
-                        {
-                            score += 10;
-                            label1.Text = "Score: " + score.ToString();
-                            break;
-                        }
+                        score += 10;
+                        label1.Text = "Score: " + score.ToString();
+                        break;
                     }
                 }
             }
         }
 
-        private bool checkCollision(UnitBox bullet, UnitBox chicken,
-            int i, int row, int col)
+        private bool checkCollision(UnitBox bullet, UnitBox chicken, int i, int j)
         {
             if (bullet.collision(chicken))
             {
                 Controls.Remove(bullet);
                 Controls.Remove(chicken);
-                _bullets[i] = _bullets[_bullets.Count - 1];
+                _bullets[j] = _bullets[_bullets.Count - 1];
                 _bullets.RemoveAt(_bullets.Count - 1);
-                _chickens[row][col] = _chickens[row][_chickens[row].Count - 1];
-                _chickens[row].RemoveAt(_chickens[row].Count - 1);
+                lastLevelChickens[i] = null;
+                for (int x = 2; x >= 1; x--)
+                {
+                    if (_chickens[x, i] != null)
+                    {
+                        lastLevelChickens[i] = _chickens[x - 1, i];                    Controls.Remove(_chickens[x, i]);
+                        _chickens[x, i] = null;
+                        break;
+                    } 
+                }
                 return true;
             }
             return false;

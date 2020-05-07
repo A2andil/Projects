@@ -37,13 +37,13 @@
             // tm
             // 
             this.tm.Enabled = true;
-            this.tm.Interval = 5;
+            this.tm.Interval = 15;
             this.tm.Tick += new System.EventHandler(this.tm_tick);
             // 
             // tm3
             // 
             this.tm3.Enabled = true;
-            this.tm3.Interval = 10;
+            this.tm3.Interval = 15;
             this.tm3.Tick += new System.EventHandler(this.tm3_Tick);
             // 
             // label1
