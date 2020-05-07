@@ -1,11 +1,11 @@
 # List of C# Projects
 
-## [1- Bracode :](C%23%20Projects/1-%20Barcode)
+## [1- Bracode](C%23%20Projects/1-%20Barcode)
        Convert Text to Baracode.
        
 ![Barcode](/Graphics/Resources/Barcode.PNG)
 
-## [2- Digital Watch :](C%23%20Projects/2-%20Digital%20Watch)
+## [2- Digital Watch](C%23%20Projects/2-%20Digital%20Watch)
        GUI For getting current time continuously.
        
 ![Barcode](/Graphics/Resources/digital_watch.PNG)
