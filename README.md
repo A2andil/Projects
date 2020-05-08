@@ -1,45 +1,45 @@
 # List of C# Projects
 
-## [1- Bracode](C%23%20Projects/1-%20Barcode)
+## [1- Bracode](C%23%20Projects/01-%20Barcode)
        Convert Text to Baracode.
        
 ![Barcode](/Graphics/Resources/Barcode.PNG)
 
-## [2- Digital Watch](C%23%20Projects/2-%20Digital%20Watch)
+## [2- Digital Watch](C%23%20Projects/02-%20Digital%20Watch)
        GUI For getting current time continuously.
        
 ![Barcode](/Graphics/Resources/digital_watch.PNG)
 
-## [3- Binary Watch](/C%23%20Projects/3-%20Binary%20Watch)
+## [3- Binary Watch](/C%23%20Projects/03-%20Binary%20Watch)
        GUI For getting current time continuously and repesent it as binary.
        
 ![Barcode](/Graphics/Resources/binary_watch.PNG)
 
-## [4- Graphical Digital Watch](/C%23%20Projects/4-%20Graphical%20Digital%20watch)
+## [4- Graphical Digital Watch](/C%23%20Projects/04-%20Graphical%20Digital%20watch)
         GUI For getting current time continuously and repesent it with graphical images.
        
 ![Barcode](/Graphics/Resources/graphical_digital_watch.PNG)
 
-## [5- Image Resize](/C%23%20Projects/5-%20Image%20Resize)
+## [5- Image Resize](/C%23%20Projects/05-%20Image%20Resize)
        Resize images into bigger and lower size and you can change extention.
        
 ![Barcode](/Graphics/Resources/image_resize.PNG)
 
-## [6- Picture Puzzle Game](/C%23%20Projects/6-%20Picture%20Puzzle%20Game)
+## [6- Picture Puzzle Game](/C%23%20Projects/06-%20Picture%20Puzzle%20Game)
        image divided into parts Randomly and player can swap part with Empty part to get the orignal image.
        
 ![Barcode](/Graphics/Resources/puzzle_game.PNG)
 
-## [7- Snake Game](/C%23%20Projects/7-%20Snake%20Game)
+## [7- Snake Game](/C%23%20Projects/07-%20Snake%20Game)
       Snake Game, everyone knows this game.
        
 ![Barcode](/Graphics/Resources/snake_game.PNG)
 
-## [8- Tic Tac Toe](/C%23%20Projects/8-%20Tic%20Tac%20Toe)
+## [8- Tic Tac Toe](/C%23%20Projects/08-%20Tic%20Tac%20Toe)
       Tic Tac Toe Game.
 ![Barcode](/Graphics/Resources/Tic%20Tac%20Toe.PNG)
 
-## [9- Chicken Invaders](/C%23%20Projects/9-%20Chicken%20Invaders)
+## [9- Chicken Invaders](/C%23%20Projects/09-%20Chicken%20Invaders)
       Chicken Invaders Game.
 ![Barcode](/Graphics/Resources/Chicken%20Invaders.PNG)
 
