@@ -16,12 +16,18 @@ namespace Chess
 
         private List<Bitmap> res = new List<Bitmap>
         {
-            Properties.Resources.Horse,
-            Properties.Resources.King,
+            Properties.Resources._2Solidier,
+            Properties.Resources._2Knight,
+            Properties.Resources._2Horse,
+            Properties.Resources._2Rook,
+            Properties.Resources._2Queen,
+            Properties.Resources._2King,
+            Properties.Resources.Solider,
             Properties.Resources.Knight,
-            Properties.Resources.Queen,
+            Properties.Resources.Horse,
             Properties.Resources.Rook,
-            Properties.Resources.Solider
+            Properties.Resources.Queen,
+            Properties.Resources.King
         };
 
         public Chess()
@@ -35,13 +41,14 @@ namespace Chess
                     board[i, j].Size = new Size(70, 70);
                     board[i, j].Location = new Point(j * 70, i * 70);
                     board[i, j].Click += buttonClicked;
+                    board[i, j].Cursor = Cursors.Hand;
                     Controls.Add(board[i, j]);
                     if ((i + j) % 2 == 0) board[i, j].BackColor = Color.BurlyWood;
                     else board[i, j].BackColor = Color.White;
                 }
             }
-            Resize();
-            Place();
+            resize();
+            place();
         }
 
         private void buttonClicked(object sender, EventArgs e)
@@ -49,20 +56,32 @@ namespace Chess
             MessageBox.Show("ok");
         }
 
-        private void Place()
+        private void place()
         {
-            Random rand = new Random();
-            for (int i = 0; i < board.GetLength(0); i++)
+            //Soliders
+            for (int j = 0; j < board.GetLength(1); j++)
             {
-                for (int j = 0; j < board.GetLength(1); j++)
-                {
-                    int r = rand.Next(res.Count);
-                    board[i, j].Image = res[r];
-                }
+                board[1, j].Image = res[0];
+                board[6, j].Image = res[6];
             }
+            //Rook
+            board[0, 0].Image = board[0, 7].Image = res[3];
+            board[7, 0].Image = board[7, 7].Image = res[9];
+            //Knight
+            board[0, 1].Image = board[0, 6].Image = res[1];
+            board[7, 1].Image = board[7, 6].Image = res[7];
+            //Horse
+            board[0, 2].Image = board[0, 5].Image = res[2];
+            board[7, 2].Image = board[7, 5].Image = res[8];
+            //Queen
+            board[0, 3].Image = res[4];
+            board[7, 3].Image = res[10];
+            //King
+            board[0, 4].Image = res[5];
+            board[7, 4].Image = res[11];
         }
 
-        private void Resize()
+        private void resize()
         {
             Graphics graphic;
             for (int i = 0; i < res.Count; i++)
