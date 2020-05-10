@@ -13,6 +13,7 @@ namespace Chess
     public partial class Chess : Form
     {
         private Button[,] board = new Button[8, 8];
+        private int[,] boardValues = new int[8, 8];
 
         private List<Bitmap> res = new List<Bitmap>
         {
@@ -30,6 +31,8 @@ namespace Chess
             Properties.Resources.King
         };
 
+        private List<Point> Moves = new List<Point>();
+
         public Chess()
         {
             InitializeComponent();
@@ -37,6 +40,7 @@ namespace Chess
             {
                 for (int j = 0; j < board.GetLength(1); j++)
                 {
+                    boardValues[i, j] = -1;
                     board[i, j] = new Button();
                     board[i, j].Size = new Size(70, 70);
                     board[i, j].Location = new Point(j * 70, i * 70);
@@ -53,7 +57,26 @@ namespace Chess
 
         private void buttonClicked(object sender, EventArgs e)
         {
-            MessageBox.Show("ok");
+
+            Button btn = (Button)sender;
+            int col = btn.Left / 70, row = btn.Top / 70;
+            Moves.Clear();
+            for (int i = 0; i < 8; i++)
+                for (int j = 0; j < 8; j++)
+                    if (boardValues[i, j] == -1)
+                        board[i, j].Text = "";
+            switch (boardValues[row, col])
+            {
+                case 0:
+                    int fRow = boardValues[row + 1, col];
+                    if (fRow == -1)
+                        Moves.Add(new Point(col, row + 1));
+                    if (row == 1 && boardValues[row + 2, col] == -1 && fRow == -1)
+                        Moves.Add(new Point(col, row + 2));
+                    break;
+            }
+            for (int i = 0; i < Moves.Count; i++)
+                board[Moves[i].Y, Moves[i].X].Text = "x";
         }
 
         private void place()
@@ -61,7 +84,10 @@ namespace Chess
             //Soliders
             for (int j = 0; j < board.GetLength(1); j++)
             {
+                boardValues[1, j] = 0;
                 board[1, j].Image = res[0];
+
+                boardValues[6, j] = 6;
                 board[6, j].Image = res[6];
             }
             //Rook
