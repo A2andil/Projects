@@ -35,11 +35,11 @@
        
 ![Barcode](/Graphics/Resources/snake_game.PNG)
 
-## [08- Tic Tac Toe Game](/C%23%20Projects/08-%20Tic%20Tac%20Toe%Game)
+## [08- Tic Tac Toe Game](/C%23%20Projects/08-%20Tic%20Tac%20Toe%20Game)
       Tic Tac Toe Game.
 ![Barcode](/Graphics/Resources/Tic%20Tac%20Toe.PNG)
 
-## [09- Chicken Invaders Game](/C%23%20Projects/09-%20Chicken%20Invaders%Game)
+## [09- Chicken Invaders Game](/C%23%20Projects/09-%20Chicken%20Invaders%20Game)
       Chicken Invaders Game.
 ![Barcode](/Graphics/Resources/Chicken%20Invaders.PNG)
 
