@@ -68,14 +68,11 @@ namespace Chess
         {
             Button btn = (Button)sender;
             int col = btn.Left / 70, row = btn.Top / 70;
-            Moves.Clear();
-            for (int i = 0; i < 8; i++)
-                for (int j = 0; j < 8; j++)
-                {
-                    board[i, j].BackColor
-                        = (i + j) % 2 == 0 ? Color.BurlyWood : Color.White;
-                    board[i, j].FlatAppearance.BorderColor = board[i, j].BackColor;
-                }
+
+            if (MovePiece(btn, row, col)) return;
+
+            resetBoard();
+
             int fRow;
             switch (boardValues[row, col])
             {
@@ -105,11 +102,18 @@ namespace Chess
                     break;
                 case 3:
                 case 9:
+                    //Rook
                     for (int i = 0; i < dx.Length; i++)
                     {
                         int cl = col, rw = row;
                         while (safe(cl + dx[i], rw + dy[i]))
                         {
+                            if (boardValues[rw + dy[i], cl + dx[i]] != -1)
+                            {
+                                int cas = boardValues[row, col];
+                                lastAdd(cas, rw + dy[i], cl + dx[i]);
+                                break;
+                            }
                             cl += dx[i]; rw += dy[i];
                             Moves.Add(new Point(cl, rw));
                         }
@@ -117,6 +121,7 @@ namespace Chess
                     break;
                 case 1:
                 case 7:
+                    //Knight
                     int[] dk = new int[2] { 1, -1 };
                     for (int i = 0; i < dk.Length; i++)
                         for (int j = 0; j < dk.Length; j++)
@@ -124,6 +129,13 @@ namespace Chess
                             int cl = col, rw = row;
                             while (safe(cl + dk[i], rw + dk[j]))
                             {
+                                if (boardValues[rw + dk[j], cl + dk[i]] != -1)
+                                {
+                                    //last pick position
+                                    int cas = boardValues[row, col];
+                                    lastAdd(cas, rw + dk[j], cl + dk[i]);
+                                    break;
+                                }
                                 cl += dk[i]; rw += dk[j];
                                 Moves.Add(new Point(cl, rw));
                             }
@@ -131,27 +143,39 @@ namespace Chess
                     break;
                 case 2:
                 case 8:
+                    //Horse
                     int[] dh = new int[4] { -1, 1, -2, 2 };
                     for (int i = 0; i < dh.Length; i++)
                     {
-                        int comp = 3 - Math.Abs(dh[i]);
-                        if (safe(row + comp, col + dh[i]))
+                        int comp = 3 - Math.Abs(dh[i]), cas = boardValues[row, col];
+                        if (safe(row + comp, col + dh[i]) 
+                            && isEnemy(cas, row + comp, col + dh[i]))
                             Moves.Add(new Point(col + dh[i], row + comp));
-                        if (safe(row - comp, col + dh[i]))
+                        if (safe(row - comp, col + dh[i])
+                            && isEnemy(cas, row - comp, col + dh[i]))
                             Moves.Add(new Point(col + dh[i], row - comp));
                     }
                     break;
                 case 4:
                 case 10:
+                    //Queen
                     for (int i = 0; i < dx.Length; i++)
                     {
                         int cl = col, rw = row;
                         while (safe(cl + dx[i], rw + dy[i]))
                         {
+                            if (boardValues[rw + dy[i], cl + dx[i]] != -1)
+                            {
+                                int cas = boardValues[row, col];
+                                lastAdd(cas, rw + dy[i], cl + dx[i]);
+                                break;
+                            }
                             cl += dx[i]; rw += dy[i];
                             Moves.Add(new Point(cl, rw));
                         }
                     }
+
+                    //diagonals
                     int[] dd = new int[2] { 1, -1 };
                     for (int i = 0; i < dd.Length; i++)
                         for (int j = 0; j < dd.Length; j++)
@@ -159,18 +183,87 @@ namespace Chess
                             int cl = col, rw = row;
                             while (safe(cl + dd[i], rw + dd[j]))
                             {
+                                if (boardValues[rw + dd[j], cl + dd[i]] != -1)
+                                {
+                                    //last pick position
+                                    int cas = boardValues[row, col];
+                                    lastAdd(cas, rw + dd[j], cl + dd[i]);
+                                    break;
+                                }
                                 cl += dd[i]; rw += dd[j];
                                 Moves.Add(new Point(cl, rw));
                             }
+                        }
+                    break;
+                case 5:
+                case 11:
+                    //King
+                    int[] dxking = { 0, 0, 1, 1, 1, -1, -1, -1 };
+                    int[] dyking = { 1, -1, 0, 1, -1, 1, -1, 0 };
+                    for (int i = 0; i < dxking.Length; i++)
+                        for (int j = 0; j < dyking.Length; j++)
+                        {
+                            int cas = boardValues[row, col];
+                            int cl = col + dxking[i], rw = row + dyking[j];
+                            if (safe(cl, rw) && isEnemy(cas, rw, cl))
+                                Moves.Add(new Point(cl, rw));
                         }
                     break;
             }
             for (int i = 0; i < Moves.Count; i++)
             {
                 board[Moves[i].Y, Moves[i].X].BackColor = Color.Coral;
-                board[Moves[i].Y, Moves[i].X].FlatAppearance.BorderColor 
+                board[Moves[i].Y, Moves[i].X].FlatAppearance.BorderColor
                     = Color.Coral;
             }
+        }
+
+        private void resetBoard()
+        {
+            Moves.Clear();
+            for (int i = 0; i < 8; i++)
+                for (int j = 0; j < 8; j++)
+                {
+                    board[i, j].BackColor
+                        = (i + j) % 2 == 0 ? Color.BurlyWood : Color.White;
+                    board[i, j].FlatAppearance.BorderColor = board[i, j].BackColor;
+                }
+        }
+
+        private bool MovePiece(Button btn, int row, int col)
+        {
+            if (Moves.Count == 0) return false;
+            for (int i = 0; i < Moves.Count; i++)
+            {
+                int rw = Moves[i].Y, cl = Moves[i].X;
+                //
+                if (cl == col && rw == row)
+                {
+                    MessageBox.Show("True");
+                    //set this position by new val, and reset past to -1
+                    //swap images
+
+                    resetBoard();
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private bool isEnemy(int cas, int row, int col)
+        {
+            bool ans = boardValues[row, col] == -1;
+            if (cas < 6 && boardValues[row, col] > 5) ans = true;
+            else if (cas > 5 && boardValues[row, col] < 6) ans = true;
+            return ans;
+        }
+
+        private void lastAdd(int cas, int row, int col)
+        {
+            if (cas > 5 && boardValues[row, col] < 6) 
+                Moves.Add(new Point(col, row));
+            else if (cas < 6 && boardValues[row, col] > 5)
+                Moves.Add(new Point(col, row));
         }
 
         private void place()
@@ -215,7 +308,10 @@ namespace Chess
 
             //King
             board[0, 4].Image = res[5];
+            boardValues[0, 4] = 5;
+
             board[7, 4].Image = res[11];
+            boardValues[7, 4] = 11;
         }
 
         private void resize()
