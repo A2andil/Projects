@@ -4,7 +4,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -35,6 +37,8 @@ namespace Chess
 
         private int[] dx = new int[4] { 1, -1, 0, 0 };
         private int[] dy = new int[4] { 0, 0, -1, 1 };
+
+        private Point current = new Point(0, 0);
 
         public Chess()
         {
@@ -69,9 +73,11 @@ namespace Chess
             Button btn = (Button)sender;
             int col = btn.Left / 70, row = btn.Top / 70;
 
-            if (MovePiece(btn, row, col)) return;
+            if (movePiece(btn, row, col)) return;
 
             resetBoard();
+
+            current.X = col; current.Y = row;
 
             int fRow;
             switch (boardValues[row, col])
@@ -230,20 +236,21 @@ namespace Chess
                 }
         }
 
-        private bool MovePiece(Button btn, int row, int col)
+        private bool movePiece(Button btn, int row, int col)
         {
             if (Moves.Count == 0) return false;
             for (int i = 0; i < Moves.Count; i++)
-            {
-                int rw = Moves[i].Y, cl = Moves[i].X;
-                //
-                if (cl == col && rw == row)
+            {                
+                if (Moves[i].X == col && Moves[i].Y == row)
                 {
-                    MessageBox.Show("True");
-                    //set this position by new val, and reset past to -1
-                    //swap images
+                    //MessageBox.Show(current.Y + " " + current.X);
+                    boardValues[row, col] = boardValues[current.Y, current.X];
+                    board[row, col].Image = board[current.Y, current.X].Image;
 
-                    resetBoard();
+                    boardValues[current.Y, current.X] = -1;
+                    board[current.Y, current.X].Image = null;
+
+                    resetBoard(); playsound();
                     return true;
                 }
             }
@@ -325,6 +332,16 @@ namespace Chess
                 graphic.Dispose();
                 res[i] = bmp;
             }
+        }
+
+        private void playsound()
+        {
+            SoundPlayer sound = new SoundPlayer(Properties.Resources.sound);
+            Thread th = new Thread(() =>
+            {
+                sound.Play();
+            });
+            th.Start();
         }
 
         private void Chess_Load(object sender, EventArgs e)
