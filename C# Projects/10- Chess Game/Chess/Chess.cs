@@ -39,6 +39,7 @@ namespace Chess
         private int[] dy = new int[4] { 0, 0, -1, 1 };
 
         private Point current = new Point(0, 0);
+        private bool turn = true; 
 
         public Chess()
         {
@@ -74,6 +75,9 @@ namespace Chess
             int col = btn.Left / 70, row = btn.Top / 70;
 
             if (movePiece(btn, row, col)) return;
+
+            if (!isRightTurn(row, col) && boardValues[row, col] != -1) return;
+
 
             resetBoard();
 
@@ -250,6 +254,8 @@ namespace Chess
                     boardValues[current.Y, current.X] = -1;
                     board[current.Y, current.X].Image = null;
 
+                    turn = !turn;
+
                     resetBoard(); playsound();
                     return true;
                 }
@@ -292,19 +298,19 @@ namespace Chess
             board[7, 0].Image = board[7, 7].Image = res[9];
             boardValues[7, 0] = boardValues[7, 7] = 9;
 
-            //Knight
-            board[0, 1].Image = board[0, 6].Image = res[1];
-            boardValues[0, 1] = boardValues[0, 6] = 1;
-
-            board[7, 1].Image = board[7, 6].Image = res[7];
-            boardValues[7, 1] = boardValues[7, 6] = 7;
-
             //Horse
-            board[0, 2].Image = board[0, 5].Image = res[2];
-            boardValues[0, 2] = boardValues[0, 5] = 2;
+            board[0, 1].Image = board[0, 6].Image = res[2];
+            boardValues[0, 1] = boardValues[0, 6] = 2;
 
-            board[7, 2].Image = board[7, 5].Image = res[8];
-            boardValues[7, 2] = boardValues[7, 5] = 8;
+            board[7, 1].Image = board[7, 6].Image = res[8];
+            boardValues[7, 1] = boardValues[7, 6] = 8;
+
+            //Knight
+            board[0, 2].Image = board[0, 5].Image = res[1];
+            boardValues[0, 2] = boardValues[0, 5] = 1;
+
+            board[7, 2].Image = board[7, 5].Image = res[7];
+            boardValues[7, 2] = boardValues[7, 5] = 7;
 
             //Queen
             board[0, 3].Image = res[4];
@@ -342,6 +348,12 @@ namespace Chess
                 sound.Play();
             });
             th.Start();
+        }
+
+        bool isRightTurn(int row, int col)
+        {
+            return (turn && boardValues[row, col] > 5) 
+                || (!turn && boardValues[row, col] < 6);
         }
 
         private void Chess_Load(object sender, EventArgs e)
