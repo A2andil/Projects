@@ -122,5 +122,20 @@
   <ItemGroup>
     <None Include="Resources\paddle.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arkanoid SFX %281%29.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arkanoid SFX %286%29.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arkanoid SFX %285%29.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\heart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\d_heart.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
