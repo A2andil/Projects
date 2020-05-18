@@ -1,0 +1,10 @@
+C:\Users\OS\source\repos\Games\Arkanoid\Arkanoid\bin\Debug\Arkanoid.exe.config
+C:\Users\OS\source\repos\Games\Arkanoid\Arkanoid\bin\Debug\Arkanoid.exe
+C:\Users\OS\source\repos\Games\Arkanoid\Arkanoid\bin\Debug\Arkanoid.pdb
+C:\Users\OS\source\repos\Games\Arkanoid\Arkanoid\obj\Debug\Arkanoid.csprojAssemblyReference.cache
+C:\Users\OS\source\repos\Games\Arkanoid\Arkanoid\obj\Debug\Arkanoid.Arkanoid.resources
+C:\Users\OS\source\repos\Games\Arkanoid\Arkanoid\obj\Debug\Arkanoid.Properties.Resources.resources
+C:\Users\OS\source\repos\Games\Arkanoid\Arkanoid\obj\Debug\Arkanoid.csproj.GenerateResource.cache
+C:\Users\OS\source\repos\Games\Arkanoid\Arkanoid\obj\Debug\Arkanoid.csproj.CoreCompileInputs.cache
+C:\Users\OS\source\repos\Games\Arkanoid\Arkanoid\obj\Debug\Arkanoid.exe
+C:\Users\OS\source\repos\Games\Arkanoid\Arkanoid\obj\Debug\Arkanoid.pdb
