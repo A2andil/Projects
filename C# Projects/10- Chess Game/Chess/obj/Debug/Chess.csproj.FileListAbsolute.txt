@@ -1,20 +1,9 @@
-C:\Users\OS\source\repos\Chess\Chess\bin\Debug\Chess.exe.config
-C:\Users\OS\source\repos\Chess\Chess\bin\Debug\Chess.exe
-C:\Users\OS\source\repos\Chess\Chess\bin\Debug\Chess.pdb
-C:\Users\OS\source\repos\Chess\Chess\obj\Debug\Chess.csprojAssemblyReference.cache
-C:\Users\OS\source\repos\Chess\Chess\obj\Debug\Chess.Chess.resources
-C:\Users\OS\source\repos\Chess\Chess\obj\Debug\Chess.Properties.Resources.resources
-C:\Users\OS\source\repos\Chess\Chess\obj\Debug\Chess.csproj.GenerateResource.cache
-C:\Users\OS\source\repos\Chess\Chess\obj\Debug\Chess.csproj.CoreCompileInputs.cache
-C:\Users\OS\source\repos\Chess\Chess\obj\Debug\Chess.exe
-C:\Users\OS\source\repos\Chess\Chess\obj\Debug\Chess.pdb
-C:\Users\OS\Documents\GitHub\Projects\C# Projects\10- Chess Game\Chess\bin\Debug\Chess.exe.config
-C:\Users\OS\Documents\GitHub\Projects\C# Projects\10- Chess Game\Chess\bin\Debug\Chess.exe
-C:\Users\OS\Documents\GitHub\Projects\C# Projects\10- Chess Game\Chess\bin\Debug\Chess.pdb
-C:\Users\OS\Documents\GitHub\Projects\C# Projects\10- Chess Game\Chess\obj\Debug\Chess.csprojAssemblyReference.cache
-C:\Users\OS\Documents\GitHub\Projects\C# Projects\10- Chess Game\Chess\obj\Debug\Chess.Chess.resources
-C:\Users\OS\Documents\GitHub\Projects\C# Projects\10- Chess Game\Chess\obj\Debug\Chess.Properties.Resources.resources
-C:\Users\OS\Documents\GitHub\Projects\C# Projects\10- Chess Game\Chess\obj\Debug\Chess.csproj.GenerateResource.cache
-C:\Users\OS\Documents\GitHub\Projects\C# Projects\10- Chess Game\Chess\obj\Debug\Chess.csproj.CoreCompileInputs.cache
-C:\Users\OS\Documents\GitHub\Projects\C# Projects\10- Chess Game\Chess\obj\Debug\Chess.exe
-C:\Users\OS\Documents\GitHub\Projects\C# Projects\10- Chess Game\Chess\obj\Debug\Chess.pdb
+C:\Users\OS\Desktop\Chess\Chess\bin\Debug\Chess.exe.config
+C:\Users\OS\Desktop\Chess\Chess\bin\Debug\Chess.exe
+C:\Users\OS\Desktop\Chess\Chess\bin\Debug\Chess.pdb
+C:\Users\OS\Desktop\Chess\Chess\obj\Debug\Chess.csprojAssemblyReference.cache
+C:\Users\OS\Desktop\Chess\Chess\obj\Debug\Chess.Properties.Resources.resources
+C:\Users\OS\Desktop\Chess\Chess\obj\Debug\Chess.csproj.GenerateResource.cache
+C:\Users\OS\Desktop\Chess\Chess\obj\Debug\Chess.csproj.CoreCompileInputs.cache
+C:\Users\OS\Desktop\Chess\Chess\obj\Debug\Chess.exe
+C:\Users\OS\Desktop\Chess\Chess\obj\Debug\Chess.pdb

@@ -39,7 +39,7 @@ namespace Chess
         private int[] dy = new int[4] { 0, 0, -1, 1 };
 
         private Point current = new Point(0, 0);
-        private bool turn = true; 
+        private bool turn = true;
 
         public Chess()
         {
@@ -158,7 +158,7 @@ namespace Chess
                     for (int i = 0; i < dh.Length; i++)
                     {
                         int comp = 3 - Math.Abs(dh[i]), cas = boardValues[row, col];
-                        if (safe(row + comp, col + dh[i]) 
+                        if (safe(row + comp, col + dh[i])
                             && isEnemy(cas, row + comp, col + dh[i]))
                             Moves.Add(new Point(col + dh[i], row + comp));
                         if (safe(row - comp, col + dh[i])
@@ -244,7 +244,7 @@ namespace Chess
         {
             if (Moves.Count == 0) return false;
             for (int i = 0; i < Moves.Count; i++)
-            {                
+            {
                 if (Moves[i].X == col && Moves[i].Y == row)
                 {
                     //MessageBox.Show(current.Y + " " + current.X);
@@ -273,7 +273,7 @@ namespace Chess
 
         private void lastAdd(int cas, int row, int col)
         {
-            if (cas > 5 && boardValues[row, col] < 6) 
+            if (cas > 5 && boardValues[row, col] < 6)
                 Moves.Add(new Point(col, row));
             else if (cas < 6 && boardValues[row, col] > 5)
                 Moves.Add(new Point(col, row));
@@ -352,7 +352,7 @@ namespace Chess
 
         bool isRightTurn(int row, int col)
         {
-            return (turn && boardValues[row, col] > 5) 
+            return (turn && boardValues[row, col] > 5)
                 || (!turn && boardValues[row, col] < 6);
         }
 

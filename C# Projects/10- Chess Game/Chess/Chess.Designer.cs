@@ -40,7 +40,7 @@
             this.Margin = new System.Windows.Forms.Padding(7, 5, 7, 5);
             this.Name = "Chess";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Load += new System.EventHandler(this.Chess_Load);
+            //this.Load += new System.EventHandler(this.Chess_Load);
             this.ResumeLayout(false);
 
         }

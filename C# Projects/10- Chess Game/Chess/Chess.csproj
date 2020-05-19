@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{583255CA-CD3B-4338-A409-C1F8CC3331E7}</ProjectGuid>
+    <ProjectGuid>{79702629-AE24-4CB8-9959-A5DC7D91A157}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Chess</RootNamespace>
     <AssemblyName>Chess</AssemblyName>
@@ -54,9 +54,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Chess.resx">
-      <DependentUpon>Chess.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
