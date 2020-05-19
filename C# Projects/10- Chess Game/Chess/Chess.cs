@@ -21,15 +21,15 @@ namespace Chess
 
         private List<Bitmap> res = new List<Bitmap>
         {
-            Properties.Resources._2Solidier,
+            Properties.Resources._2Pawn,
+            Properties.Resources._2Bishop,
             Properties.Resources._2Knight,
-            Properties.Resources._2Horse,
             Properties.Resources._2Rook,
             Properties.Resources._2Queen,
             Properties.Resources._2King,
-            Properties.Resources.Solider,
+            Properties.Resources.Pawn,
+            Properties.Resources.Bishop,
             Properties.Resources.Knight,
-            Properties.Resources.Horse,
             Properties.Resources.Rook,
             Properties.Resources.Queen,
             Properties.Resources.King
@@ -101,10 +101,10 @@ namespace Chess
             switch (boardValues[row, col])
             {
                 case 0:
-                    soldierGold(row, col);
+                    pawnGold(row, col);
                     break;
                 case 6:
-                    soldierWhite(row, col);
+                    pawnWhite(row, col);
                     break;
                 case 3:
                 case 9:
@@ -112,11 +112,11 @@ namespace Chess
                     break;
                 case 1:
                 case 7:
-                    knight(row, col);
+                    bishop(row, col);
                     break;
                 case 2:
                 case 8:
-                    horse(row, col);
+                    knight(row, col);
                     break;
                 case 4:
                 case 10:
@@ -129,7 +129,7 @@ namespace Chess
             }
         }
 
-        private void soldierGold(int row, int col)
+        private void pawnGold(int row, int col)
         {
             int fRow = boardValues[row + 1, col];
             if (fRow == -1)
@@ -142,7 +142,7 @@ namespace Chess
                 Moves.Add(new Point(col - 1, row + 1));
         }
 
-        private void soldierWhite(int row, int col)
+        private void pawnWhite(int row, int col)
         {
             int fRow = boardValues[row - 1, col];
             if (fRow == -1)
@@ -157,7 +157,7 @@ namespace Chess
                 Moves.Add(new Point(col + 1, row - 1));
         }
 
-        private void knight(int row, int col)
+        private void bishop(int row, int col)
         {
             int[] dk = new int[2] { 1, -1 };
             for (int i = 0; i < dk.Length; i++)
@@ -179,7 +179,7 @@ namespace Chess
                 }
         }
 
-        private void horse(int row, int col)
+        private void knight(int row, int col)
         {
             int[] dh = new int[4] { -1, 1, -2, 2 };
             for (int i = 0; i < dh.Length; i++)
@@ -216,7 +216,7 @@ namespace Chess
         private void queen(int row, int col)
         {
             rook(row, col);
-            knight(row, col);
+            bishop(row, col);
         }
 
         private void king(int row, int col)
@@ -287,9 +287,9 @@ namespace Chess
                 {
                     Moves.Clear();
                     if (turn == Role.White && boardValues[i, j] == 6)
-                        soldierWhite(i, j);
+                        pawnWhite(i, j);
                     else if (turn == Role.Gold && boardValues[i, j] == 0)
-                        soldierGold(i, j);
+                        pawnGold(i, j);
                     else if (boardValues[i, j] != -1) transition(i, j);
                     for (int x = 0; x < Moves.Count && ans; x++)
                         if (boardValues[Moves[x].Y, Moves[x].X] == targetValue)
@@ -336,14 +336,14 @@ namespace Chess
             board[7, 0].Image = board[7, 7].Image = res[9];
             boardValues[7, 0] = boardValues[7, 7] = 9;
 
-            //Horse
+            //knight
             board[0, 1].Image = board[0, 6].Image = res[2];
             boardValues[0, 1] = boardValues[0, 6] = 2;
 
             board[7, 1].Image = board[7, 6].Image = res[8];
             boardValues[7, 1] = boardValues[7, 6] = 8;
 
-            //Knight
+            //bishop
             board[0, 2].Image = board[0, 5].Image = res[1];
             boardValues[0, 2] = boardValues[0, 5] = 1;
 
