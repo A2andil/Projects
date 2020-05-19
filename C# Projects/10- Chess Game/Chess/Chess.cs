@@ -14,8 +14,10 @@ namespace Chess
 {
     public partial class Chess : Form
     {
+        enum Role { White, Gold }
+
         private Button[,] board = new Button[8, 8];
-        private int[,] boardValues = new int[8, 8];
+        private int[,] boardValues = new int[8, 8], valuesCopy = new int[8, 8];
 
         private List<Bitmap> res = new List<Bitmap>
         {
@@ -39,7 +41,8 @@ namespace Chess
         private int[] dy = new int[4] { 0, 0, -1, 1 };
 
         private Point current = new Point(0, 0);
-        private bool turn = true;
+
+        private Role turn = Role.White;
 
         public Chess()
         {
@@ -83,149 +86,151 @@ namespace Chess
 
             current.X = col; current.Y = row;
 
-            int fRow;
-            switch (boardValues[row, col])
-            {
-                case 0:
-                    fRow = boardValues[row + 1, col];
-                    if (fRow == -1)
-                        Moves.Add(new Point(col, row + 1));
-                    if (row == 1 && boardValues[row + 2, col] == -1 && fRow == -1)
-                        Moves.Add(new Point(col, row + 2));
-                    if (safe(row + 1, col + 1) && boardValues[row + 1, col + 1] > 5)
-                        Moves.Add(new Point(col + 1, row + 1));
-                    if (safe(row + 1, col - 1) && boardValues[row + 1, col - 1] > 5)
-                        Moves.Add(new Point(col - 1, row + 1));
-                    break;
-                case 6:
-                    fRow = boardValues[row - 1, col];
-                    if (fRow == -1)
-                        Moves.Add(new Point(col, row - 1));
-                    if (row == 6 && boardValues[row - 2, col] == -1 && fRow == -1)
-                        Moves.Add(new Point(col, row - 2));
-                    if (safe(row - 1, col - 1) && boardValues[row - 1, col - 1] < 6
-                        && boardValues[row - 1, col - 1] != -1)
-                        Moves.Add(new Point(col - 1, row - 1));
-                    if (safe(row - 1, col + 1) && boardValues[row - 1, col + 1] < 6
-                        && boardValues[row - 1, col + 1] != -1)
-                        Moves.Add(new Point(col + 1, row - 1));
-                    break;
-                case 3:
-                case 9:
-                    //Rook
-                    for (int i = 0; i < dx.Length; i++)
-                    {
-                        int cl = col, rw = row;
-                        while (safe(cl + dx[i], rw + dy[i]))
-                        {
-                            if (boardValues[rw + dy[i], cl + dx[i]] != -1)
-                            {
-                                int cas = boardValues[row, col];
-                                lastAdd(cas, rw + dy[i], cl + dx[i]);
-                                break;
-                            }
-                            cl += dx[i]; rw += dy[i];
-                            Moves.Add(new Point(cl, rw));
-                        }
-                    }
-                    break;
-                case 1:
-                case 7:
-                    //Knight
-                    int[] dk = new int[2] { 1, -1 };
-                    for (int i = 0; i < dk.Length; i++)
-                        for (int j = 0; j < dk.Length; j++)
-                        {
-                            int cl = col, rw = row;
-                            while (safe(cl + dk[i], rw + dk[j]))
-                            {
-                                if (boardValues[rw + dk[j], cl + dk[i]] != -1)
-                                {
-                                    //last pick position
-                                    int cas = boardValues[row, col];
-                                    lastAdd(cas, rw + dk[j], cl + dk[i]);
-                                    break;
-                                }
-                                cl += dk[i]; rw += dk[j];
-                                Moves.Add(new Point(cl, rw));
-                            }
-                        }
-                    break;
-                case 2:
-                case 8:
-                    //Horse
-                    int[] dh = new int[4] { -1, 1, -2, 2 };
-                    for (int i = 0; i < dh.Length; i++)
-                    {
-                        int comp = 3 - Math.Abs(dh[i]), cas = boardValues[row, col];
-                        if (safe(row + comp, col + dh[i])
-                            && isEnemy(cas, row + comp, col + dh[i]))
-                            Moves.Add(new Point(col + dh[i], row + comp));
-                        if (safe(row - comp, col + dh[i])
-                            && isEnemy(cas, row - comp, col + dh[i]))
-                            Moves.Add(new Point(col + dh[i], row - comp));
-                    }
-                    break;
-                case 4:
-                case 10:
-                    //Queen
-                    for (int i = 0; i < dx.Length; i++)
-                    {
-                        int cl = col, rw = row;
-                        while (safe(cl + dx[i], rw + dy[i]))
-                        {
-                            if (boardValues[rw + dy[i], cl + dx[i]] != -1)
-                            {
-                                int cas = boardValues[row, col];
-                                lastAdd(cas, rw + dy[i], cl + dx[i]);
-                                break;
-                            }
-                            cl += dx[i]; rw += dy[i];
-                            Moves.Add(new Point(cl, rw));
-                        }
-                    }
+            transition(row, col);
 
-                    //diagonals
-                    int[] dd = new int[2] { 1, -1 };
-                    for (int i = 0; i < dd.Length; i++)
-                        for (int j = 0; j < dd.Length; j++)
-                        {
-                            int cl = col, rw = row;
-                            while (safe(cl + dd[i], rw + dd[j]))
-                            {
-                                if (boardValues[rw + dd[j], cl + dd[i]] != -1)
-                                {
-                                    //last pick position
-                                    int cas = boardValues[row, col];
-                                    lastAdd(cas, rw + dd[j], cl + dd[i]);
-                                    break;
-                                }
-                                cl += dd[i]; rw += dd[j];
-                                Moves.Add(new Point(cl, rw));
-                            }
-                        }
-                    break;
-                case 5:
-                case 11:
-                    //King
-                    int[] dxking = { 0, 0, 1, 1, 1, -1, -1, -1 };
-                    int[] dyking = { 1, -1, 0, 1, -1, 1, -1, 0 };
-                    for (int i = 0; i < dxking.Length; i++)
-                        for (int j = 0; j < dyking.Length; j++)
-                        {
-                            int cas = boardValues[row, col];
-                            int cl = col + dxking[i], rw = row + dyking[j];
-                            if (safe(cl, rw) && isEnemy(cas, rw, cl))
-                                Moves.Add(new Point(cl, rw));
-                        }
-                    break;
-            }
             for (int i = 0; i < Moves.Count; i++)
             {
                 board[Moves[i].Y, Moves[i].X].BackColor = Color.Coral;
                 board[Moves[i].Y, Moves[i].X].FlatAppearance.BorderColor
                     = Color.Coral;
             }
+        }
+
+        private void transition(int row, int col)
+        {
+            switch (boardValues[row, col])
+            {
+                case 0:
+                    soldierGold(row, col);
+                    break;
+                case 6:
+                    soldierWhite(row, col);
+                    break;
+                case 3:
+                case 9:
+                    rook(row, col);
+                    break;
+                case 1:
+                case 7:
+                    knight(row, col);
+                    break;
+                case 2:
+                case 8:
+                    horse(row, col);
+                    break;
+                case 4:
+                case 10:
+                    queen(row, col);
+                    break;
+                case 5:
+                case 11:
+                    king(row, col);
+                    break;
+            }
+        }
+
+        private void soldierGold(int row, int col)
+        {
+            int fRow = boardValues[row + 1, col];
+            if (fRow == -1)
+                Moves.Add(new Point(col, row + 1));
+            if (row == 1 && boardValues[row + 2, col] == -1 && fRow == -1)
+                Moves.Add(new Point(col, row + 2));
+            if (safe(row + 1, col + 1) && boardValues[row + 1, col + 1] > 5)
+                Moves.Add(new Point(col + 1, row + 1));
+            if (safe(row + 1, col - 1) && boardValues[row + 1, col - 1] > 5)
+                Moves.Add(new Point(col - 1, row + 1));
+        }
+
+        private void soldierWhite(int row, int col)
+        {
+            int fRow = boardValues[row - 1, col];
+            if (fRow == -1)
+                Moves.Add(new Point(col, row - 1));
+            if (row == 6 && boardValues[row - 2, col] == -1 && fRow == -1)
+                Moves.Add(new Point(col, row - 2));
+            if (safe(row - 1, col - 1) && boardValues[row - 1, col - 1] < 6
+                && boardValues[row - 1, col - 1] != -1)
+                Moves.Add(new Point(col - 1, row - 1));
+            if (safe(row - 1, col + 1) && boardValues[row - 1, col + 1] < 6
+                && boardValues[row - 1, col + 1] != -1)
+                Moves.Add(new Point(col + 1, row - 1));
+        }
+
+        private void knight(int row, int col)
+        {
+            int[] dk = new int[2] { 1, -1 };
+            for (int i = 0; i < dk.Length; i++)
+                for (int j = 0; j < dk.Length; j++)
+                {
+                    int cl = col, rw = row;
+                    while (safe(cl + dk[i], rw + dk[j]))
+                    {
+                        if (boardValues[rw + dk[j], cl + dk[i]] != -1)
+                        {
+                            //last pick position
+                            int cas = boardValues[row, col];
+                            lastAdd(cas, rw + dk[j], cl + dk[i]);
+                            break;
+                        }
+                        cl += dk[i]; rw += dk[j];
+                        Moves.Add(new Point(cl, rw));
+                    }
+                }
+        }
+
+        private void horse(int row, int col)
+        {
+            int[] dh = new int[4] { -1, 1, -2, 2 };
+            for (int i = 0; i < dh.Length; i++)
+            {
+                int comp = 3 - Math.Abs(dh[i]), cas = boardValues[row, col];
+                if (safe(row + comp, col + dh[i])
+                    && isEnemy(cas, row + comp, col + dh[i]))
+                    Moves.Add(new Point(col + dh[i], row + comp));
+                if (safe(row - comp, col + dh[i])
+                    && isEnemy(cas, row - comp, col + dh[i]))
+                    Moves.Add(new Point(col + dh[i], row - comp));
+            }
+        }
+
+        private void rook(int row, int col)
+        {
+            for (int i = 0; i < dx.Length; i++)
+            {
+                int cl = col, rw = row;
+                while (safe(cl + dx[i], rw + dy[i]))
+                {
+                    if (boardValues[rw + dy[i], cl + dx[i]] != -1)
+                    {
+                        int cas = boardValues[row, col];
+                        lastAdd(cas, rw + dy[i], cl + dx[i]);
+                        break;
+                    }
+                    cl += dx[i]; rw += dy[i];
+                    Moves.Add(new Point(cl, rw));
+                }
+            }
+        }
+
+        private void queen(int row, int col)
+        {
+            rook(row, col);
+            knight(row, col);
+        }
+
+        private void king(int row, int col)
+        {
+            int[] dxking = { 0, 0, 1, 1, 1, -1, -1, -1 };
+            int[] dyking = { 1, -1, 0, 1, -1, 1, -1, 0 };
+            for (int i = 0; i < dxking.Length; i++)
+                for (int j = 0; j < dyking.Length; j++)
+                {
+                    int cas = boardValues[row, col];
+                    int cl = col + dxking[i], rw = row + dyking[j];
+                    if (safe(cl, rw) && isEnemy(cas, rw, cl))
+                        Moves.Add(new Point(cl, rw));
+                }
         }
 
         private void resetBoard()
@@ -247,20 +252,53 @@ namespace Chess
             {
                 if (Moves[i].X == col && Moves[i].Y == row)
                 {
-                    //MessageBox.Show(current.Y + " " + current.X);
+                    if (!isKingSafe(row, col, current.Y, current.X))
+                    {
+                        MessageBox.Show("not safe");
+                        return false;
+                    }
                     boardValues[row, col] = boardValues[current.Y, current.X];
                     board[row, col].Image = board[current.Y, current.X].Image;
 
                     boardValues[current.Y, current.X] = -1;
                     board[current.Y, current.X].Image = null;
 
-                    turn = !turn;
+                    turn = (turn == Role.White) ? Role.Gold : Role.White;
 
                     resetBoard(); playsound();
                     return true;
                 }
             }
+            resetBoard();
             return false;
+        }
+
+        bool isKingSafe(int row, int col, int currentRow, int currentCol)
+        {
+            int currentValue = boardValues[row, col];
+            boardValues[row, col] = boardValues[currentRow, currentCol];
+            boardValues[currentRow, currentCol] = -1;
+
+            bool ans = true;
+            int targetValue = turn == Role.Gold ? 5 : 11;
+
+            for (int i = 0; i < boardValues.GetLength(0) && ans; i++)
+                for (int j = 0; j < boardValues.GetLength(1) && ans; j++)
+                {
+                    Moves.Clear();
+                    if (turn == Role.White && boardValues[i, j] == 6)
+                        soldierWhite(i, j);
+                    else if (turn == Role.Gold && boardValues[i, j] == 0)
+                        soldierGold(i, j);
+                    else if (boardValues[i, j] != -1) transition(i, j);
+                    for (int x = 0; x < Moves.Count && ans; x++)
+                        if (boardValues[Moves[x].Y, Moves[x].X] == targetValue)
+                                ans = false;
+                }
+
+            boardValues[currentRow, currentCol] = boardValues[row, col];
+            boardValues[row, col] = currentValue;
+            return ans;
         }
 
         private bool isEnemy(int cas, int row, int col)
@@ -352,13 +390,9 @@ namespace Chess
 
         bool isRightTurn(int row, int col)
         {
-            return (turn && boardValues[row, col] > 5)
-                || (!turn && boardValues[row, col] < 6);
+            return (turn == Role.White && boardValues[row, col] > 5)
+                || (turn == Role.Gold && boardValues[row, col] < 6);
         }
 
-        private void Chess_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
