@@ -25,6 +25,11 @@ namespace Arkanoid
         public Arkanoid()
         {
             InitializeComponent();
+            Intialize();
+        }
+
+        void Intialize()
+        {
             createPaddle();
             createBall();
             drawBricks();
@@ -143,12 +148,23 @@ namespace Arkanoid
 
             if (_ball.Bounds.IntersectsWith(_paddle.Bounds))
             {
-                dy = -dy; caldx(_paddle);
+                dy = Math.Abs(dy); caldx(_paddle);
                 new Thread(() => {
                     new SoundPlayer(Properties.Resources.Arkanoid_SFX__5_)
                     .Play();
                 }).Start();
             }
+            if (score == 10 * 10 * 4) win();
+        }
+
+        void win()
+        {
+            tm.Stop();
+            Controls.Clear();
+            MessageBox.Show("Congratulations, you win!");
+            score = 0; lblScore.Text = "Score: 0";
+            Controls.Add(lblScore);
+            Intialize();
         }
 
         void caldx(Control c)
