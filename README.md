@@ -33,7 +33,7 @@
 ## [07- Snake Game](/C%23%20Projects/07-%20Snake%20Game)
       Snake Game, everyone knows this game.
        
-![Barcode](/Graphics/Resources/snake_game.PNG)
+![Barcode](/Graphics/Resources/snake_game.jpg)
 
 ## [08- Tic Tac Toe Game](/C%23%20Projects/08-%20Tic%20Tac%20Toe%20Game)
       Tic Tac Toe Game.
