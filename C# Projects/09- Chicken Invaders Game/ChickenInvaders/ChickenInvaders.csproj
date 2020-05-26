@@ -46,24 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Piece.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="UserDefined\UnitBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Window.cs">
+    <Compile Include="ChickenInvaders.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Window.Designer.cs">
-      <DependentUpon>Window.cs</DependentUpon>
+    <Compile Include="ChickenInvaders.Designer.cs">
+      <DependentUpon>ChickenInvaders.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Window.resx">
-      <DependentUpon>Window.cs</DependentUpon>
+    <EmbeddedResource Include="ChickenInvaders.resx">
+      <DependentUpon>ChickenInvaders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

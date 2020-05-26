@@ -23,3 +23,18 @@ C:\Users\OS\source\repos\Chicken Invaders\ChickenInvaders\bin\Debug\AxInterop.WM
 C:\Users\OS\source\repos\Chicken Invaders\ChickenInvaders\obj\Debug\Interop.WMPLib.dll
 C:\Users\OS\source\repos\Chicken Invaders\ChickenInvaders\obj\Debug\AxInterop.WMPLib.dll
 C:\Users\OS\source\repos\Chicken Invaders\ChickenInvaders\obj\Debug\ChickenInvaders.csproj.ResolveComReference.cache
+C:\Users\OS\Documents\GitHub\Projects\C# Projects\09- Chicken Invaders Game\ChickenInvaders\obj\Debug\ChickenInvaders.csprojAssemblyReference.cache
+C:\Users\OS\Documents\GitHub\Projects\C# Projects\09- Chicken Invaders Game\ChickenInvaders\obj\Debug\Interop.WMPLib.dll
+C:\Users\OS\Documents\GitHub\Projects\C# Projects\09- Chicken Invaders Game\ChickenInvaders\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\OS\Documents\GitHub\Projects\C# Projects\09- Chicken Invaders Game\ChickenInvaders\obj\Debug\ChickenInvaders.csproj.ResolveComReference.cache
+C:\Users\OS\Documents\GitHub\Projects\C# Projects\09- Chicken Invaders Game\ChickenInvaders\obj\Debug\ChickenInvaders.Properties.Resources.resources
+C:\Users\OS\Documents\GitHub\Projects\C# Projects\09- Chicken Invaders Game\ChickenInvaders\obj\Debug\ChickenInvaders.csproj.GenerateResource.cache
+C:\Users\OS\Documents\GitHub\Projects\C# Projects\09- Chicken Invaders Game\ChickenInvaders\obj\Debug\ChickenInvaders.csproj.CoreCompileInputs.cache
+C:\Users\OS\Documents\GitHub\Projects\C# Projects\09- Chicken Invaders Game\ChickenInvaders\obj\Debug\ChickenInvaders.exe
+C:\Users\OS\Documents\GitHub\Projects\C# Projects\09- Chicken Invaders Game\ChickenInvaders\obj\Debug\ChickenInvaders.pdb
+C:\Users\OS\Documents\GitHub\Projects\C# Projects\09- Chicken Invaders Game\ChickenInvaders\bin\Debug\ChickenInvaders.exe.config
+C:\Users\OS\Documents\GitHub\Projects\C# Projects\09- Chicken Invaders Game\ChickenInvaders\bin\Debug\ChickenInvaders.exe
+C:\Users\OS\Documents\GitHub\Projects\C# Projects\09- Chicken Invaders Game\ChickenInvaders\bin\Debug\ChickenInvaders.pdb
+C:\Users\OS\Documents\GitHub\Projects\C# Projects\09- Chicken Invaders Game\ChickenInvaders\bin\Debug\Interop.WMPLib.dll
+C:\Users\OS\Documents\GitHub\Projects\C# Projects\09- Chicken Invaders Game\ChickenInvaders\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\OS\Documents\GitHub\Projects\C# Projects\09- Chicken Invaders Game\ChickenInvaders\obj\Debug\ChickenInvaders.ChickenInvaders.resources
