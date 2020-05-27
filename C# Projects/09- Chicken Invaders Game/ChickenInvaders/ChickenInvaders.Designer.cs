@@ -29,51 +29,51 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.tm = new System.Windows.Forms.Timer(this.components);
             this.lblScore = new System.Windows.Forms.Label();
-            this.eggTimer = new System.Windows.Forms.Timer(this.components);
-            this.chickenTimer = new System.Windows.Forms.Timer(this.components);
+            this.bulletsTm = new System.Windows.Forms.Timer(this.components);
+            this.chickensTm = new System.Windows.Forms.Timer(this.components);
+            this.eggsTm = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
-            // 
-            // tm
-            // 
-            this.tm.Enabled = true;
-            this.tm.Interval = 15;
-            this.tm.Tick += new System.EventHandler(this.tm_tick);
             // 
             // lblScore
             // 
             this.lblScore.AutoSize = true;
             this.lblScore.Location = new System.Drawing.Point(12, 9);
             this.lblScore.Name = "lblScore";
-            this.lblScore.Size = new System.Drawing.Size(96, 33);
+            this.lblScore.Size = new System.Drawing.Size(98, 21);
             this.lblScore.TabIndex = 0;
             this.lblScore.Text = "Score: 0";
             // 
-            // eggTimer
+            // bulletsTm
             // 
-            this.eggTimer.Enabled = true;
-            this.eggTimer.Interval = 15;
-            this.eggTimer.Tick += new System.EventHandler(this.eggTimr_Tick);
+            this.bulletsTm.Enabled = true;
+            this.bulletsTm.Interval = 20;
+            this.bulletsTm.Tick += new System.EventHandler(this.bulletsTm_Tick);
             // 
-            // chickenTimer
+            // chickensTm
             // 
-            this.chickenTimer.Enabled = true;
-            this.chickenTimer.Interval = 15;
-            this.chickenTimer.Tick += new System.EventHandler(this.chickenTimer_Tick);
+            this.chickensTm.Enabled = true;
+            this.chickensTm.Interval = 20;
+            this.chickensTm.Tick += new System.EventHandler(this.chickensTm_Tick);
+            // 
+            // eggsTm
+            // 
+            this.eggsTm.Enabled = true;
+            this.eggsTm.Interval = 20;
+            this.eggsTm.Tick += new System.EventHandler(this.eggsTm_Tick);
             // 
             // ChickenInvaders
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 33F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1200, 700);
             this.Controls.Add(this.lblScore);
-            this.Font = new System.Drawing.Font("Segoe Print", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "ChickenInvaders";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Form1";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ChickenInvaders_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ChickenInvaders_KeyUp);
             this.ResumeLayout(false);
@@ -83,10 +83,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Timer tm;
         private System.Windows.Forms.Label lblScore;
-        private System.Windows.Forms.Timer eggTimer;
-        private System.Windows.Forms.Timer chickenTimer;
+        private System.Windows.Forms.Timer bulletsTm;
+        private System.Windows.Forms.Timer chickensTm;
+        private System.Windows.Forms.Timer eggsTm;
     }
 }
 

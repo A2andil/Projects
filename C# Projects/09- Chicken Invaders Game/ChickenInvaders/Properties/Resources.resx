@@ -118,38 +118,35 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="b2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\b2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="a2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\a2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="dead" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dead.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="eggBreak" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\eggBreak.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bulletSound" xml:space="preserve">
-    <value>C:/Users/OS/Downloads/Compressed/GameFire-master/GameFire/Content/Music/bullet/a.mp3</value>
-  </data>
-  <data name="chickenGreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\chickenGreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="b3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\b3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="a3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\a3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="b1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\b1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="egg_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\egg_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="b2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\b2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ship" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ship.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="b3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\b3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="give" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\give.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="boss" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\boss.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bossRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bossRed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bullet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bullet.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chickenGreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chickenGreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="chickenParachute" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\chickenParachute.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,37 +157,40 @@
   <data name="chickenRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\chickenRed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="eggBreak_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\eggBreak_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="egg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\egg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="boss" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\boss.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bossRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bossRed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="a3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\a3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="a" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\a.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="background" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="heart" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\heart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="win" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\win.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="dead" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dead.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="d_heart" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\d_heart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="egg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\egg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eggBreak" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eggBreak.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eggBreak_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eggBreak_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="egg_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\egg_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="give" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\give.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="heart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\heart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="lose" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lose.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ship" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ship.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="win" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\win.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

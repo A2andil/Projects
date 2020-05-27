@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3DA419B2-C155-4259-9312-7208D9770223}</ProjectGuid>
+    <ProjectGuid>{05CA4838-FEF9-43BA-8913-A8B97F2025CE}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>ChickenInvaders</RootNamespace>
     <AssemblyName>ChickenInvaders</AssemblyName>
@@ -46,19 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Piece.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="ChickenInvaders.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ChickenInvaders.Designer.cs">
       <DependentUpon>ChickenInvaders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Piece.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -67,9 +62,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -84,10 +84,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ship.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\bullet.bmp" />
+    <None Include="Resources\2.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\a2.png" />
@@ -105,16 +102,16 @@
     <None Include="Resources\b3.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\give.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\a.wav" />
+    <None Include="Resources\background.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\boss.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bossRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bullet.bmp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\chickenGreen.png" />
@@ -127,6 +124,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\chickenRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\d_heart.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\dead.png" />
@@ -144,38 +144,19 @@
     <None Include="Resources\eggBreak_1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\background.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <COMReference Include="AxWMPLib">
-      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>aximp</WrapperTool>
-      <Isolated>False</Isolated>
-    </COMReference>
-    <COMReference Include="WMPLib">
-      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\win.png" />
+    <None Include="Resources\give.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\heart.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\d_heart.png" />
+    <None Include="Resources\lose.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\lose.png" />
+    <None Include="Resources\ship.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\win.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

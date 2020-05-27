@@ -61,11 +61,12 @@ namespace ChickenInvaders.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream a {
+        internal static System.Drawing.Bitmap _2 {
             get {
-                return ResourceManager.GetStream("a", resourceCulture);
+                object obj = ResourceManager.GetObject("_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -150,11 +151,12 @@ namespace ChickenInvaders.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to C:/Users/OS/Downloads/Compressed/GameFire-master/GameFire/Content/Music/bullet/a.mp3.
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static string bulletSound {
+        internal static System.Drawing.Bitmap bullet {
             get {
-                return ResourceManager.GetString("bulletSound", resourceCulture);
+                object obj = ResourceManager.GetObject("bullet", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

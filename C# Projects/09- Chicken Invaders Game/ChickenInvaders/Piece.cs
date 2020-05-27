@@ -8,10 +8,9 @@ using System.Windows.Forms;
 
 namespace ChickenInvaders
 {
-    public class Piece : PictureBox
+    class Piece : PictureBox
     {
-        public int eggLandCount = 0, eggdownSpeed = 2;
-
+        public int eggLandCount = 0, eggDownSpeed = 2;
         public Piece(int width, int height)
         {
             Width = width;
@@ -19,10 +18,5 @@ namespace ChickenInvaders
             SizeMode = PictureBoxSizeMode.StretchImage;
             BackColor = Color.Transparent;
         }
-
-        public void resetLand() => eggLandCount = 0;
-        
-
-        public bool collision(Piece enemy) => Bounds.IntersectsWith(enemy.Bounds);
     }
 }
