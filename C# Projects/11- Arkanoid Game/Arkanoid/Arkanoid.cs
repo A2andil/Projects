@@ -89,24 +89,24 @@ namespace Arkanoid
 
         private void Arkanoid_KeyDown(object sender, KeyEventArgs e)
         {
-            int x = _paddle.Location.X;
+            int left = _paddle.Location.X;
             switch (e.KeyCode)
             {
                 case Keys.Left:
-                    x -= _paddleDx;
+                    left -= _paddleDx;
                     break;
                 case Keys.Right:
-                    x += _paddleDx;
+                    left += _paddleDx;
                     break;
                 case Keys.Space:
                     tm.Start();
                     break;
             }
-            if (x >= 0 && x <= Width - _paddle.Width)
+            if (left >= 0 && left <= Width - _paddle.Width)
             {
-                _paddle.Left = x;
+                _paddle.Left = left;
                 if (!tm.Enabled)
-                    _ball.Left = x + _paddle.Width / 2 - _ball.Width / 2;
+                    _ball.Left = left + _paddle.Width / 2 - _ball.Width / 2;
             }
         }
 
@@ -129,8 +129,7 @@ namespace Arkanoid
                 }
             }
 
-            _ball.Left -= dx;
-            _ball.Top -= dy;
+            _ball.Left -= dx; _ball.Top -= dy;
             foreach (Control c in Controls)
                 if (c.Tag != null && _ball.Bounds.IntersectsWith(c.Bounds))
                 {
@@ -197,8 +196,7 @@ namespace Arkanoid
                 box.Location = new Point(Width - (3 - i) * box.Width, 0);
                 box.SizeMode = PictureBoxSizeMode.StretchImage;
                 box.Image = Properties.Resources.heart;
-                Controls.Add(box);
-                _hearts.Add(box);
+                Controls.Add(box); _hearts.Add(box);
             }
         }
     }
