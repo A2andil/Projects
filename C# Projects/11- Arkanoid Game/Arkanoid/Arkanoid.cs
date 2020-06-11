@@ -54,7 +54,7 @@ namespace Arkanoid
             _ball.SizeMode = PictureBoxSizeMode.StretchImage;
             _ball.Image = Properties.Resources.ball;
             _ball.Location
-                = new Point(_paddle.Left + _paddle.Width / 2 - _ball.Width / 2
+                = new Point(_paddle.Left + _paddle.Width / 2 -_ball.Width / 2
                 , _paddle.Top - _ball.Height);
             Controls.Add(_ball);
         }
@@ -65,16 +65,13 @@ namespace Arkanoid
 
             List<Bitmap> bricksImages = new List<Bitmap>
             {
-                Properties.Resources._0,
-                Properties.Resources._1,
-                Properties.Resources._2,
-                Properties.Resources._3,
-                Properties.Resources._4,
-                Properties.Resources._5,
+                Properties.Resources._0, Properties.Resources._1,
+                Properties.Resources._2, Properties.Resources._3,
+                Properties.Resources._4, Properties.Resources._5,
                 Properties.Resources._6
             };
 
-            resize(bricksImages, 70, 30);
+            bricksResize(bricksImages, 70, 30);
 
             for (int i = 0; i < 4; i++)
                 for (int j = 0; j < 10; j++)
@@ -84,7 +81,8 @@ namespace Arkanoid
                     brick.Location = new Point(50 + j * 70, i * 30 + 50);
                     brick.Size = new Size(70, 30);
                     brick.Image = Properties.Resources.paddle;
-                    brick.Image = bricksImages[rand.Next() % bricksImages.Count];
+                    brick.Image 
+                        = bricksImages[rand.Next() %bricksImages.Count];
                     Controls.Add(brick);
                 }
         }
@@ -122,9 +120,9 @@ namespace Arkanoid
                 tm.Stop();
                 _ball.Left = _paddle.Left + _paddle.Width / 2 - _ball.Width / 2;
                 _ball.Top = _paddle.Top - _ball.Height;
-                _hearts[3 - live].Image = Properties.Resources.d_heart;
+                _hearts[live - 1].Image = Properties.Resources.d_heart;
                 live -= 1;
-                if (live <= 0)
+                if (live < 1)
                 {
                     MessageBox.Show("Game over");
                     Controls.Clear();
@@ -136,7 +134,7 @@ namespace Arkanoid
             foreach (Control c in Controls)
                 if (c.Tag != null && _ball.Bounds.IntersectsWith(c.Bounds))
                 {
-                    dy = -dy; caldx(c);
+                    caldy(c); caldx(c);
                     Controls.Remove(c);
                     score += 10;
                     lblScore.Text = "Score: " + score.ToString();
@@ -150,8 +148,7 @@ namespace Arkanoid
             {
                 dy = Math.Abs(dy); caldx(_paddle);
                 new Thread(() => {
-                    new SoundPlayer(Properties.Resources.Arkanoid_SFX__5_)
-                    .Play();
+                    new SoundPlayer(Properties.Resources.crash).Play();
                 }).Start();
             }
             if (score == 10 * 10 * 4) win();
@@ -169,11 +166,15 @@ namespace Arkanoid
 
         void caldx(Control c)
         {
-            dx = c.Left + c.Width / 2 < _ball.Left ?
-                -Math.Abs(dx) : Math.Abs(dx);
+            dx = c.Left + c.Width / 2 < _ball.Left? -Math.Abs(dx) : Math.Abs(dx);
         }
 
-        void resize(List<Bitmap> images, int width, int height)
+        void caldy(Control c)
+        {
+            dy = c.Top + c.Height / 2 < _ball.Top? -Math.Abs(dy) : Math.Abs(dy);
+        }
+
+        void bricksResize(List<Bitmap> images, int width, int height)
         {
             Graphics graph;
             for (int i = 0; i < images.Count; i++)
@@ -193,7 +194,7 @@ namespace Arkanoid
             {
                 PictureBox box = new PictureBox();
                 box.Size = new Size(30, 30);
-                box.Location = new Point(Width - (i + 1) * box.Width, 0);
+                box.Location = new Point(Width - (3 - i) * box.Width, 0);
                 box.SizeMode = PictureBoxSizeMode.StretchImage;
                 box.Image = Properties.Resources.heart;
                 Controls.Add(box);

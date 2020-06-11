@@ -1,0 +1,10 @@
+C:\Users\OS\Documents\GitHub\Projects\C# Projects\09- Chicken Invaders Game\ChickenInvaders\bin\Release\ChickenInvaders.exe.config
+C:\Users\OS\Documents\GitHub\Projects\C# Projects\09- Chicken Invaders Game\ChickenInvaders\bin\Release\ChickenInvaders.exe
+C:\Users\OS\Documents\GitHub\Projects\C# Projects\09- Chicken Invaders Game\ChickenInvaders\bin\Release\ChickenInvaders.pdb
+C:\Users\OS\Documents\GitHub\Projects\C# Projects\09- Chicken Invaders Game\ChickenInvaders\obj\Release\ChickenInvaders.csprojAssemblyReference.cache
+C:\Users\OS\Documents\GitHub\Projects\C# Projects\09- Chicken Invaders Game\ChickenInvaders\obj\Release\ChickenInvaders.ChickenInvaders.resources
+C:\Users\OS\Documents\GitHub\Projects\C# Projects\09- Chicken Invaders Game\ChickenInvaders\obj\Release\ChickenInvaders.Properties.Resources.resources
+C:\Users\OS\Documents\GitHub\Projects\C# Projects\09- Chicken Invaders Game\ChickenInvaders\obj\Release\ChickenInvaders.csproj.GenerateResource.cache
+C:\Users\OS\Documents\GitHub\Projects\C# Projects\09- Chicken Invaders Game\ChickenInvaders\obj\Release\ChickenInvaders.csproj.CoreCompileInputs.cache
+C:\Users\OS\Documents\GitHub\Projects\C# Projects\09- Chicken Invaders Game\ChickenInvaders\obj\Release\ChickenInvaders.exe
+C:\Users\OS\Documents\GitHub\Projects\C# Projects\09- Chicken Invaders Game\ChickenInvaders\obj\Release\ChickenInvaders.pdb

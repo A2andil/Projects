@@ -121,11 +121,11 @@
   <data name="Arkanoid_SFX__1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Arkanoid SFX (1).wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Arkanoid_SFX__5_" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Arkanoid SFX (5).wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="ball" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ball.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="crash" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\crash.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="d_heart" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\d_heart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

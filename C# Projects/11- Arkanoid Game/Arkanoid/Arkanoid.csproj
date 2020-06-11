@@ -137,5 +137,11 @@
   <ItemGroup>
     <None Include="Resources\d_heart.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coin.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\crash.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
