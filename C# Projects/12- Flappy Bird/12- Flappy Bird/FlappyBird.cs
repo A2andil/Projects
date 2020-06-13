@@ -1099,7 +1099,7 @@ namespace _12__Flappy_Bird
 
         private void tm_Tick(object sender, EventArgs e)
         {
-            count = (count + 1) % 600;
+            count = (count + 1) % 700;
             Bitmap bmp = new Bitmap(_bg.Width, _bg.Height);
 
             Graphics gg = Graphics.FromImage(bmp);
