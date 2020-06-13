@@ -1,0 +1,10 @@
+C:\Users\OS\Documents\GitHub\Projects\C# Projects\12- Flappy Bird\12- Flappy Bird\bin\Debug\12- Flappy Bird.exe.config
+C:\Users\OS\Documents\GitHub\Projects\C# Projects\12- Flappy Bird\12- Flappy Bird\bin\Debug\12- Flappy Bird.exe
+C:\Users\OS\Documents\GitHub\Projects\C# Projects\12- Flappy Bird\12- Flappy Bird\bin\Debug\12- Flappy Bird.pdb
+C:\Users\OS\Documents\GitHub\Projects\C# Projects\12- Flappy Bird\12- Flappy Bird\obj\Debug\12- Flappy Bird.csprojAssemblyReference.cache
+C:\Users\OS\Documents\GitHub\Projects\C# Projects\12- Flappy Bird\12- Flappy Bird\obj\Debug\_12__Flappy_Bird.Properties.Resources.resources
+C:\Users\OS\Documents\GitHub\Projects\C# Projects\12- Flappy Bird\12- Flappy Bird\obj\Debug\12- Flappy Bird.csproj.GenerateResource.cache
+C:\Users\OS\Documents\GitHub\Projects\C# Projects\12- Flappy Bird\12- Flappy Bird\obj\Debug\12- Flappy Bird.csproj.CoreCompileInputs.cache
+C:\Users\OS\Documents\GitHub\Projects\C# Projects\12- Flappy Bird\12- Flappy Bird\obj\Debug\12- Flappy Bird.exe
+C:\Users\OS\Documents\GitHub\Projects\C# Projects\12- Flappy Bird\12- Flappy Bird\obj\Debug\12- Flappy Bird.pdb
+C:\Users\OS\Documents\GitHub\Projects\C# Projects\12- Flappy Bird\12- Flappy Bird\obj\Debug\_12__Flappy_Bird.FlappyBird.resources
