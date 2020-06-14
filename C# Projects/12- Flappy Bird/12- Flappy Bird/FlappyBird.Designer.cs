@@ -46,7 +46,6 @@
             // 
             // tm
             // 
-            this.tm.Enabled = true;
             this.tm.Interval = 15;
             this.tm.Tick += new System.EventHandler(this.tm_Tick);
             // 
@@ -62,6 +61,8 @@
             this.Name = "FlappyBird";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.FlappyBird_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FlappyBird_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.PB)).EndInit();
             this.ResumeLayout(false);
 
