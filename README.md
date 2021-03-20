@@ -1,5 +1,4 @@
 # List of C# Projects
-#Lots Of Love C++
 
 ## [01- Bracode](C%23%20Projects/01-%20Barcode)
        Convert Text to Baracode.
